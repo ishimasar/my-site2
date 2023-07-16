@@ -1,0 +1,103 @@
+/**
+ * 全体汎用スタイル - 見出し
+*/
+
+@use "../../base/setting" as s;
+
+// ページタイトル(ホーム以外のページ用)h1
+.geHeading1Subpage {
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  letter-spacing: 0.08rem;
+  background: linear-gradient(
+      355.38deg,
+      hsla(36, 94%, 34%, 1) -33.88%,
+      hsla(38, 100%, 58%, .1) 86.5%
+    ),
+    linear-gradient(267.4deg, hsla(36, 94%, 34%, 1) -12.23%, hsla(38, 94%, 47%, .075) 51.41%),
+    linear-gradient(143.97deg, hsla(23, 69%, 11%, 1) 8.47%, hsla(35, 75%, 46%, .05) 65.63%),
+    radial-gradient(100px at 82% 10%, hsla(23, 69%, 11%, 1) 55%, hsla(31, 100%, 81%, .1) 100%),
+    linear-gradient(0deg, hsla(36, 94%, 34%, 1), hsla(36, 94%, 34%, 1)), hsla(38, 96%, 20%, 1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @include s.mq(dt) {
+    margin-bottom: 3rem;
+  }
+  @include s.mq(sp-tb) {
+    margin-bottom: 2rem;
+  }
+  > .ja {
+    display: block;
+    font-family: var(--sentence-font);
+    font-weight: bold;
+    @include s.mq(dt) {
+      font-size: calc(var(--font-size-g) + 0.4rem);
+    }
+    @include s.mq(sp-tb) {
+      font-size: calc(var(--font-size-f) + 0.15rem);
+    }
+  }
+  > .en {
+    display: block;
+    margin: 0.8rem auto;
+    @include s.engFont;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include s.mq(dt) {
+      font-size: var(--font-size-d);
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 100px;
+    margin: auto;
+    padding-top: 1rem;
+    border-bottom: 1px solid var(--frame-color);
+  }
+}
+
+// 記事見出し(border装飾有)h2
+.geHeading2Article,
+%geHeading2Article {
+  display: inline-block;
+  position: relative;
+  padding-left: 0.8rem;
+  line-height: 2;
+  font-family: var(--sentence-font);
+  font-weight: bold;
+  @include s.mq(dt) {
+    font-size: var(--font-size-e);
+  }
+  @include s.mq(sp-tb) {
+    font-size: var(--font-size-d);
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: -0.15rem;
+    left: 0;
+    width: 2rem;
+    height: -moz-available; /* Firefox対応 */
+    height: -webkit-fill-available;
+    max-height: 100%;
+    border-left: 0.25rem solid var(--line-color);
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: -0.15rem;
+    left: 0;
+    width: 100%;
+    height: 0.09375rem;
+    background: linear-gradient(
+      to right,
+      var(--text-dark-color) 30%,
+      var(--white)
+    );
+  }
+}

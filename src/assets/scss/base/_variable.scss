@@ -1,0 +1,181 @@
+/**
+ * _variable.scss
+ * CSS変数(CSS custom properties for cascading variables)
+*/
+
+:root {
+  /*
+   * font-family - semantic type
+   * - SASSのmixinでレスポンシブ(media query)対応している(下の方↓)
+   * - デバイス別表示の接尾辞(suffix) -> Mb: Mobile, Tablet、Dt: Desktop
+   */
+  --base-font: -apple-system, BlinkMacSystemFont, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, BIZ UDPGothic, Meiryo, sans-serif;
+  --decorative-font-mb: Hiragino Mincho Pro, BIZ UDPMincho, Noto Serif JP, serif;
+  --decorative-font-dt: Hiragino Mincho Pro, BIZ UDPMincho, serif;
+
+  --logo-font: Brandon Grotesque Bold;
+  --sentence-font: var(--base-font);
+  --sentence-font-mb: var(--base-font);
+  --sentence-font-dt: var(--base-font);
+  --heading-font-mb: var(--base-font);
+  --heading-font-dt: var(--base-font);
+  --home-section-heading-font-mb: var(--decorative-font-mb);
+  --home-section-heading-font-dt: var(--decorative-font-dt);
+  --english-font: Brandon Grotesque Medium;
+  --english-font-print: Arial, sans-serif;
+  // --number-font: Lato;
+
+  // #### font-size
+  // CSS variable for calculation based on root font-size of 16px
+  // --10px-rem: 0.625rem;
+  // --11px-rem: 0.6875rem;
+  --12px-rem: 0.75rem;
+  // --13px-rem: 0.8125rem;
+  --14px-rem: 0.875rem;
+  // --15px-rem: 0.9375rem;
+  // --17px-rem: 1.0625rem;
+  --18px-rem: 1.125rem;
+  // --19px-rem: 1.1875rem;
+  --20px-rem: 1.25rem;
+  // --21px-rem: 1.3125rem;
+  // --22px-rem: 1.375rem;
+  // --23px-rem: 1.4375rem;
+  --24px-rem: 1.5rem;
+  // --25px-rem: 1.5625rem;
+  // --26px-rem: 1.625rem;
+  // --27px-rem: 1.6875rem;
+  --28px-rem: 1.75rem;
+  // --29px-rem: 1.8125rem;
+  // --30px-rem: 1.875rem;
+  --32px-rem: 2rem;
+  --36px-rem: 2.25rem;
+  --40px-rem: 2.5rem;
+  // --44px-rem: 2.75rem;
+  --48px-rem: 3rem;
+  // --56px-rem: 3.5rem;
+  // --64px-rem: 4rem;
+  // --72px-rem: 4.5rem;
+  // --80px-rem: 5rem;
+
+  // Harmonic Modular Scale / Name based on scale
+  --font-size-a: calc(1rem * 8 / 10); // 0.8rem / 12.8px
+  --font-size-b: calc(1rem * 8 / 9); // 0.88889rem / 14.22222px
+  --font-size-c: 1rem; // 16px
+  --font-size-d: calc(1rem * 8 / 7); // 1.14286rem / 18.28571px
+  --font-size-e: calc(1rem * 8 / 6); // 1.33333rem / 21.33333px
+  --font-size-f: calc(1rem * 8 / 5); // 1.6rem / 25.6px
+  --font-size-g: calc(1rem * 8 / 4); // 2rem / 32px
+  --font-size-h: calc(1rem * 8 / 3); // 2.66666rem / 42.66666px
+
+  /* color - semantic type */
+  --text-normal-color: hsla(23, 36%, 23%, 1); // #4f3525 : Hexadecimal color code
+
+  --text-dark-color: hsla(23, 100%, 8%, 1); // #280f00
+  --text-highlight-color: hsla(35, 27%, 63%, 1); // #bba688
+  --logo-color: hsla(23, 69%, 11%, 1); // #311809
+  --line-color: hsla(23, 36%, 23%, 1);
+  --frame-color: hsla(23, 36%, 23%, 1);
+  --bg-pale-color: hsla(32, 62%, 96%, 1); // #fbf5ee
+  --accent-color: hsla(229, 73%, 19%, 1); // #0d1a53
+  --focusring-color: hsla(217, 99%, 71%, 1); // #6ca3fe
+  --error-color: hsla(350, 100%, 45%, 1); // #e60027
+
+  /* color - declarative type */
+  --black: hsla(0, 0%, 20%, 1); // #333
+  --white: hsla(0, 100%, 100%, 1); // #fff
+
+  /* easing - declarative type */
+
+  /* sine */
+  // --ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
+  // --ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
+  // --ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+  /* quad */
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+  /* cubic */
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  /* quart */
+  // --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  // --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  // --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* quint */
+  // --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  // --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  // --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+
+  /* expo */
+  // --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  // --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  // --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+
+  /* circ */
+  // --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  // --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  // --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+  /* back */
+  // --ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  // --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  // --ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ui parts - semantic type */
+  --logo-hover-gradient: linear-gradient(
+    108deg,
+    hsla(36, 94%, 34%, 1) 0,
+    hsla(38, 96%, 20%, 1) 30%,
+    hsla(23, 69%, 11%, 1) 70%,
+    hsla(23, 100%, 8%, 1) 90%
+  );
+  --globalnav-hover-gradient-r: linear-gradient(
+    to right,
+    hsla(37, 90%, 45%, 1) 0,
+    hsla(23, 69%, 23%, 1) 60%
+  );
+  --globalnav-hover-gradient-l: linear-gradient(
+    to left,
+    hsla(37, 90%, 45%, 1) 0,
+    hsla(23, 69%, 23%, 1) 60%
+  );
+  --textbox-shadow: 0 10px 15px -3px hsla(0, 0%, 0%, .2),
+    0 4px 6px -2px hsla(0, 0%, 0%, .1);
+  --textbox-bg1: hsla(0, 100%, 100%, .95);
+  --textbox-bg2: hsla(32, 62%, 96%, .9);
+  --textbox-hover-shadow: 0 12px 12px 0 hsla(0, 0%, 0%, .14),
+    0 5px 7px 0 hsla(0, 0%, 0%, .065);
+  --tag-shadow: 2px 3px 4px 2px hsla(0, 0%, 0%, .25);
+  --tag-hover-shadow: 3px 3.5px 6px 3px hsla(0, 0%, 0%, .2);
+  --button-shadow: 2px 4px 5px 2px hsla(0, 0%, 0%, .25);
+  --button-hover-gradient: linear-gradient(
+    115deg,
+    hsla(36, 94%, 34%, 1) 0,
+    hsla(23, 100%, 8%, 1) 40%
+  );
+  --button-hover-shadow: 3px 5.5px 6px 3px hsla(0, 0%, 0%, .2);
+  --button-transition: all cubic-bezier(0.55, 0.085, 0.68, .53) 0.2s;
+  --footer-bg: linear-gradient(
+    -28deg,
+    hsla(25, 57%, 22%, 1) 5%,
+    hsla(23, 100%, 8%, 1) 28%,
+    hsla(23, 100%, 8%, 1) 75%,
+    hsla(24, 52%, 24%, 1) 95%
+  );
+
+  /* other - semantic type */
+  // --base-radius: 6px;
+  // --small-radius: 4px;
+  // --content-width: 965px;
+  // --max-width: 1600;
+  // --hover-scale: scale(1.1);
+
+  /* hover effect transition - semantic type */
+  // --in-transition: color .25s var(--ease-in-out-quad), background-color .25s var(--ease-in-out-quad), transform .25s var(--ease-in-out-quad);
+  // --out-transition: color .3s var(--ease-out-quad), background-color .3s var(--ease-in-out-quad), transform .3s var(--ease-in-out-quad);
+}

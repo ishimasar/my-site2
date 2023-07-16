@@ -1,0 +1,55 @@
+/**
+ * 全体汎用スタイル - セレクトボックス(フォーム)
+*/
+
+@use "../../base/setting" as s;
+
+%geSeleContainer {
+  position: relative;
+  &::after {
+    display: inline;
+    position: absolute;
+    @include s.triangle(12, 8, bottom, var(--text-dark-color));
+    @include s.mq(dt) {
+      bottom: 19.5px;
+      right: 20px;
+    }
+    @include s.mq(sp-tb) {
+      bottom: 17px;
+      right: 13px;
+    }
+  }
+}
+
+%geSelect {
+  display: inline-block;
+  position: relative;
+  margin: auto 1px auto -1px;
+  border: 1px solid var(--line-color);
+  line-height: 1.2;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 1px hsla(0, 0%, 0%, .15);
+  appearance: none;
+  &:focus {
+    border-width: 2px;
+  }
+  @include s.mq(dt) {
+    width: 75%;
+    height: 51px;
+    padding: 0.65rem 1rem;
+    font-size: var(--font-size-d);
+    &:focus {
+      padding: calc(0.65rem - 1px) calc(1rem - 1px);
+    }
+  }
+  @include s.mq(sp-tb) {
+    width: 100%;
+    height: 47.34px;
+    padding: 0.65rem 1.5rem 0.5rem 0.8rem;
+    font-size: calc(var(--font-size-c) - 0.1rem);
+    &:focus {
+      padding: calc(0.65rem - 1px) calc(1.5rem - 1px) calc(0.5rem - 1px)
+        calc(0.8rem - 1px);
+    }
+  }
+}

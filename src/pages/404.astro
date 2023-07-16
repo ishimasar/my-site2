@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/ArticleLayout.astro';
+import Head from '../components/Head.astro';
+
+let title = 'Home';
+let description = 'Home';
+let permalink = 'https://example.com/';
+---
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <Head {title} {description} {permalink} />
+  </head>
+  <body>
+    <Layout title="Not Found Page">
+      <h1>お探しのページは見つかりせん。</h1>
+      <p>404 error</p>
+    </Layout>
+  </body>
+</html>

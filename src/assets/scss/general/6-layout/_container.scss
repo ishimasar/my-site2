@@ -1,0 +1,30 @@
+/**
+ * 全体汎用スタイル - main要素の汎用コンテナレイアウト
+*/
+
+@use "../../base/setting" as s;
+
+// エラーページや問い合わせサンクスページなど簡易ページのラッパー
+%geWrapperSimple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  font-family: var(--sentence-font);
+  @include s.mq(tb-dth) {
+    width: 100vw;
+    padding: {
+      top: 4rem;
+      bottom: 6rem;
+    }
+  }
+  @include s.mq(sp) {
+    width: 90vw;
+    margin: auto;
+    padding: {
+      top: 2rem;
+      bottom: 3rem;
+    }
+  }
+}

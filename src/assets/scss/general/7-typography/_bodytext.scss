@@ -1,0 +1,77 @@
+/**
+ * 全体汎用スタイル - 文章段落
+*/
+
+@use "../../base/setting" as s;
+
+// ホーム以外の本文テキスト
+.geBodyText,
+%geBodyText {
+  padding-top: 1.2rem;
+  line-height: 1.7;
+  font-family: var(--sentence-font);
+  @include s.mq(dt) {
+    font-size: var(--font-size-d);
+  }
+  &.-pt0 {
+    padding-top: 0;
+  }
+  & .link {
+    display: inline-block;
+    width: auto;
+    text-decoration: underline;
+    color: var(--accent-color);
+    @include s.mq(dt) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    > .icon {
+      margin-left: 0.2rem;
+      font-size: var(--font-size-c);
+    }
+  }
+}
+
+// エラーページや問い合わせサンクスページなど簡易ページの文章段落
+.geMessageSimple {
+  text-align: center;
+  font-weight: bold;
+  @include s.mq(tb-dth) {
+    line-height: 2;
+    font-size: var(--font-size-e);
+  }
+  @include s.mq(sp) {
+    width: 90vw;
+    margin: auto;
+    font-size: var(--font-size-d);
+  }
+  > .strong {
+    display: block;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    @include s.mq(tb-dth) {
+      font-size: 3.5rem;
+      [class*="errWrapper"] & {
+        margin-bottom: 1rem;
+        font-size: 6.5rem;
+      }
+    }
+    @include s.mq(sp) {
+      font-size: var(--font-size-g);
+      [class*="errWrapper"] & {
+        margin-bottom: 1rem;
+        font-size: var(--font-size-h);
+      }
+    }
+  }
+}
+
+// エラーページや問い合わせサンクスページなど簡易ページの文章段落
+.geParagraphSimple {
+  margin-top: 2rem;
+  text-align: center;
+  @include s.mq(tb-dth) {
+    line-height: 2;
+  }
+}

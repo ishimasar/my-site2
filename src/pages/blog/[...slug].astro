@@ -1,0 +1,311 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { getEntryBySlug, CollectionEntry } from "astro:content";
+const { slug } = Astro.params as { slug: string };
+const entry = (await getEntryBySlug("blog", slug)) as CollectionEntry<"blog">;
+const { Content } = await entry.render();
+
+import '../../assets/scss/global.scss'
+
+const { remarkPluginFrontmatter } = await entry.render();
+
+import Head from '../../components/Head.astro';
+
+let title = remarkPluginFrontmatter.title;
+let description = remarkPluginFrontmatter.description;
+---
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <Head {title} {description} />
+  </head>
+  <body>
+    <ArticleLayout minutesRead={remarkPluginFrontmatter["minutesRead"]}>
+      <main class="artWrapper">
+        <article class="artArticle">
+          <p class="artMinRead">読了時間:{remarkPluginFrontmatter.minutesRead}分ほど</p>
+          <h1>{remarkPluginFrontmatter.title}</h1>
+          <div class="artTimeContainer">
+            <span class="artTime">公開日:<time datetime=""></time>{remarkPluginFrontmatter.publishDate}</span>
+            <!-- span class="artTime">更新日:<time datetime=""></time>{remarkPluginFrontmatter.updateDate}</span -->
+          </div>
+          <p class="artAuthor">著:
+            <a href="/about/">{remarkPluginFrontmatter.author}</a>
+          </p>
+          <Content />
+        </article>
+      </main>
+    </ArticleLayout>
+  </body>
+</html>
+
+<style is:global lang="scss">
+  @use "../../assets/scss/base/setting" as s;
+  @use '../../assets/scss/general/7-typography/heading' as heading;
+  @use '../../assets/scss/general/7-typography/bodytext' as body;
+
+  [aria-hidden] {
+    display: none;
+  }
+
+  .math.math-display {
+    margin: 1rem auto auto;
+  }
+
+  .svg-inline--fa.fa-w-16 {
+    &.fa-history,
+    &.fa-sync {
+      width: 1.5em;
+      padding-right: 0.3rem;
+    }
+  }
+  p.artMinRead {
+    text-align: right;
+    @include s.mq(dt) {
+      margin-bottom: 2rem;
+      font-size: var(--font-size-c);
+    }
+    @include s.mq(sp-tb) {
+      margin-bottom: 1.5rem;
+      font-size: var(--font-size-b);
+    }
+  }
+  .artWrapper {
+
+    position: relative;
+    width: 100%;
+    min-height: 40.3vh;
+    margin: auto;
+    background-color: var(--bg-pale-color);
+    @include s.mq(dt) {
+      padding: {
+        top: 3rem;
+        bottom: 6rem;
+      }
+    }
+    @include s.mq(sp-tb) {
+      padding-top: 2rem;
+    }
+  }
+  .artArticle {
+    max-width: 60rem;
+    margin: auto;
+    border: 1.5px solid var(--line-color);
+    background-color: var(--white);
+    border-radius: 0.25rem;
+    box-shadow: 0 10px 15px 3px hsla(0, 0%, 0%, 0.1),
+      0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    @include s.mq(tb-dth) {
+      padding: 3rem 5rem 4rem;
+    }
+    @include s.mq(sp-tb) {
+      width: 96vw;
+      max-width: 52rem;
+      padding: 2rem 1rem;
+    }
+    @include s.mq(tb) {
+      margin-bottom: 3rem;
+    }
+    @include s.mq(sp) {
+      max-width: 96vw;
+      margin-bottom: 2.5rem;
+    }
+    &:not(:first-of-type) {
+      padding-top: 2rem;
+    }
+    h1 {
+      text-align: center;
+      font-family: var(--sentence-font);
+      font-weight: bold;
+      letter-spacing: 0.08rem;
+      @include s.mq(dt) {
+        margin-bottom: 1.5rem;
+        font-size: var(--font-size-g);
+      }
+      @include s.mq(sp-tb) {
+        margin-bottom: 2rem;
+        font-size: calc(var(--font-size-e) + 0.15rem);
+      }
+      > .en {
+        display: block;
+        margin: 0.8rem auto;
+        @include s.engFont;
+        font-weight: bold;
+        text-transform: uppercase;
+        @include s.mq(dt) {
+          font-size: var(--font-size-d);
+        }
+      }
+      &::after {
+        content: '';
+        display: block;
+        width: 100px;
+        margin: auto;
+        padding-top: 1rem;
+        border-bottom: 1px solid var(--frame-color);
+      }
+    }
+    & h2 {
+      @include s.mq(dt) {
+        margin-top: 2.5rem;
+      }
+      @include s.mq(sp-tb) {
+        margin-top: 2rem;
+      }
+    }
+    > h2 {
+      @extend %geHeading2Article;
+    }
+    > p {
+      padding-top: 1rem;
+      font-family: var(--sentence-font);
+      @include s.mq(dt) {
+        font-size: var(--font-size-d);
+      }
+      > a {
+        text-decoration: underline;
+        color: var(--accent-color);
+        @include s.mq(dt) {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        & * {
+          text-decoration: underline !important;
+        }
+      }
+    }
+    & p span,
+    &  time {
+      font-family: var(--sentence-font);
+    }
+    h1 + * + img {
+      display: block;
+      margin: auto;
+      @include s.mq(tb-dth) {
+        width: 60%;
+      }
+      @include s.mq(sp) {
+        width: 90%;
+      }
+    }
+    & strong {
+      position: relative;
+      background: linear-gradient(
+        transparent 89%,
+        var(--text-highlight-color) 87%
+      );
+      color: var(--text-dark-color);
+    }
+    & em {
+      font-style: normal;
+      font-weight: bold;
+    }
+    > figure {
+      width: auto;
+      max-width: 37.5rem;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    & figcaption {
+      margin-top: 1.5rem;
+    }
+    > span:not([class*='token']):not([class='line-numbers-rows']) {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.2rem 0.8rem;
+      border: 1px solid var(--text-dark-color);
+      background-color: var(--white);
+      font-weight: normal;
+      font-size: calc(var(--font-size-c) - 0.02rem);
+      color: var(--text-dark-color);
+      border-radius: 0.3rem 0.3rem 0 0;
+      &:first-of-type {
+        margin-top: 1.8rem;
+      }
+    }
+    & pre {
+      margin-top: 0;
+      padding: 1rem .5rem;
+      border-radius: 0.3rem;
+    }
+    & code {
+      font-size: calc(var(--font-size-c) - 0.01rem);
+      @include s.mq(tb-dth) {
+        line-height: 1.6;
+      }
+      @include s.mq(sp) {
+        line-height: 1.4;
+        font-size: var(--font-size-b);
+      }
+    }
+    > ul:not([id=contents] + ul) {
+      line-height: 1.7;
+      padding-top: 1rem;
+      font-family: var(--sentence-font);
+      font-size: var(--font-size-d);
+      ＞ li {
+        padding-left: 1rem;
+        text-indent: 1rem;
+      }
+    }
+    & blockquote {
+      position: relative;
+      margin: 2rem 0 auto;
+      padding-left: 1.25rem;
+      > p {
+        font-size: var(--font-size-d);
+        color: #737373;
+      }
+      & a {
+        text-decoration: underline;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+        border-left: 4px solid #737373;
+      }
+    }
+    & small {
+      display: block;
+      margin-top: 0.25rem;
+    }
+  }
+  .artTimeContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: auto;
+    height: 100%;
+    margin: auto;
+    @include s.mq(tb-dth) {
+      max-width: 30rem;
+    }
+    @include s.mq(sp) {
+      width: 95%;
+    }
+  }
+  .artTime {
+    display: block;
+    text-align: center;
+    font-family: var(--sentence-font);
+    @include s.mq(tb-dth) {
+      font-size: var(--font-size-d);
+    }
+    @include s.mq(sp) {
+      font-size: calc(var(--font-size-b) + 0.03rem);
+    }
+    &:not(:first-of-type) {
+      padding-left: 0.4rem;
+    }
+  }
+  .artBorder {
+    margin: 1.5rem auto 1.3rem;
+  }
+  .artAuthor {
+    text-align: center;
+  }
+</style>

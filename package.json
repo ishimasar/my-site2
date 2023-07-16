@@ -11,6 +11,26 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.6.0"
+    "@astrojs/markdown-remark": "^2.2.1",
+    "@astrojs/mdx": "^0.19.7",
+    "astro": "^2.8.0",
+    "mdast-util-to-string": "^4.0.0",
+    "mdx": "^0.3.1",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-katex": "^6.0.3",
+    "rehype-slug": "^5.1.0",
+    "remark-math": "^5.1.1",
+    "remark-toc": "^8.0.1"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/ishimasar/astro.git",
+  "author": "masa_ishii <ishimasar1106@gmail.com>",
+  "license": "MIT",
+  "volta": {
+    "node": "16.13.0"
+  },
+  "devDependencies": {
+    "sass": "^1.63.6"
   }
 }

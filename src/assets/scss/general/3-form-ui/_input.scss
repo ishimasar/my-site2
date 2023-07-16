@@ -1,0 +1,35 @@
+/**
+ * 全体汎用スタイル - 各種インプット要素(フォーム)
+*/
+
+@use "../../base/setting" as s;
+
+%geInputText {
+  display: inline-block;
+  margin: auto;
+  border: 1px solid var(--line-color);
+  background-color: var(--bg-pale-color);
+  line-height: 1.5;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 1px hsla(0, 0%, 0%, .15) inset;
+  @include s.mq(dt) {
+    width: 75%;
+    padding: 0.65rem 1rem;
+    font-size: var(--font-size-d);
+  }
+  @include s.mq(sp-tb) {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font-size: calc(var(--font-size-c) - 0.1rem);
+  }
+  &:focus {
+    border-width: 2px;
+    box-shadow: 2px 2px 4px 2px hsla(0, 0%, 0%, .15) inset;
+    @include s.mq(dt) {
+      padding: calc(0.65rem - 1px) calc(1rem - 1px);
+    }
+    @include s.mq(sp-tb) {
+      padding: calc(0.75rem - 1px) calc(0.9rem - 1px);
+    }
+  }
+}

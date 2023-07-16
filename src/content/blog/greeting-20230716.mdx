@@ -1,0 +1,87 @@
+---
+layout: '../../layouts/ArticleLayout.astro'
+title: "軽量Webフレームワーク・Astroでサイトリニューアル"
+author: "Cloudy knot"
+publishDate: "2023/07/16"
+updateDate: "2023/07/16"
+description: "やっとたどり着いた理想のブログ環境。Markdownでサクサク書ける、オールインワン軽量Webフレームワーク・Astroでブログサイトを再構築した話。"
+thumb: "https://formereditor.xsrv.jp/wp-content/uploads/2021/10/img-0002-e1583301947100.jpg.webp"
+category: "Web / Software"
+tags: ["production", "Astro"]
+---
+### Contents
+
+## オールインワン軽量Webフレームワーク・Astroでブログサイトを再構築した話
+
+やっとたどり着いた理想のブログ環境。Markdownでサクサク書ける、オールインワン軽量Webフレームワーク・Astroでブログサイトを再構築した話。
+
+[参照元: UKIGUMO CAFE](https://www.drifting-clouds.com/blog)
+
+もう少し読み応えはあっても良いのかもしれませんね。田中はそんなふうにささやいたように思えただけだったのかもしれない。とにかく早く家に帰りたい。そう思うのも束の間、突然ヒグマが雄叫びとともに襲いかかってくるような来ないような、幸子はそんな心持ちであった。
+
+これは**強調用のスタイル**。こちらは*順強調用のスタイル* 😅
+
+以下は、Webブラウザで数学表記($\LaTeX$)を表示するクロスブラウザJavaScriptライブラリ・[$\KaTeX$](https://katex.org/)で描画している。
+
+$$
+  \sum_{\substack{0<i<m\\0<j<n}}
+$$
+$$
+  \sqrt{\smash[b]{y}} + \cfrac{a}{1 + \cfrac{1}{b}}
+$$
+
+HTML
+
+```html
+  <p>ppppp</p>
+```
+
+JavaScript
+
+```js
+  function $initHighlight(block, cls) {
+    try {
+      if (cls.search(/\bno\-highlight\b/) != -1) {
+        return process(block, true, 0x0F) +` class="${cls}"`;
+      }
+    } catch (e) {
+      /* handle exception */
+    }
+    for (var i = 0 / 2; i < classes.length; i++) {
+      if (checkCondition(classes[i]) === undefined) {
+        console.log('undefined');
+      }
+    }
+    return (
+      <div>
+        <web-component>{block}</web-component>
+      </div>
+    )
+  }
+
+  export  $initHighlight;
+```
+
+## hogeがhogeってる
+
+* hoge1
+* hoge2
+* hoge3
+
+> 引用: [金剛寺さんは面倒臭い (7)](https://www.amazon.co.jp/%E9%87%91%E5%89%9B%E5%AF%BA%E3%81%95%E3%82%93%E3%81%AF%E9%9D%A2%E5%80%92%E8%87%AD%E3%81%84-7-%E3%82%B2%E3%83%83%E3%82%B5%E3%83%B3%E5%B0%91%E5%B9%B4%E3%82%B5%E3%83%B3%E3%83%87%E3%83%BC%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9-%E3%81%A8%E3%82%88%E7%94%B0-%E3%81%BF%E3%81%AE%E3%82%8B/dp/4098502577/ref=rw_dp_pbnx_fo_vol_7)
+
+|  TH  |  TH  |  TH  |
+| ---- | ---- | ---- |
+|  TD  |  TD  |  TD  |
+|  TD  |  TD  |  TD  |
+
+## hogeがhogeってない
+
+* hoge-1
+* hoge-2
+* hoge-3
+
+|  TH  |  TH  |  TH  |
+| ---- | ---- | ---- |
+|  TD  |  TD  |  TD  |
+|  TD  |  TD  |  TD  |

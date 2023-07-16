@@ -1,0 +1,38 @@
+/**
+ * 全体汎用スタイル - テキストエリア(フォーム)
+*/
+
+@use "../../base/setting" as s;
+
+%geTextarea {
+  display: inline-block;
+  margin: auto;
+  border: 1px solid var(--line-color);
+  background-color: var(--bg-pale-color);
+  line-height: 1.5;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 1px hsla(0, 0%, 0%, .15) inset;
+  resize: vertical;
+  @include s.mq(dt) {
+    width: 75%;
+    height: 200px;
+    padding: 1.2rem 1rem;
+    font-size: var(--font-size-d);
+  }
+  @include s.mq(sp-tb) {
+    width: 100%;
+    height: 170px;
+    padding: 0.8rem;
+    font-size: calc(var(--font-size-c) - 0.1rem);
+  }
+  &:focus {
+    border-width: 2px;
+    box-shadow: 2px 2px 4px 2px hsla(0, 0%, 0%, .15) inset;
+    @include s.mq(dt) {
+      padding: calc(1.2rem - 1px) calc(1rem - 1px);
+    }
+    @include s.mq(sp-tb) {
+      padding: calc(0.8rem - 1px);
+    }
+  }
+}

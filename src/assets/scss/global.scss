@@ -1,0 +1,21 @@
+/**
+style.scss...style.cssのコンパイル前のひとまとめファイル
+----------
+ディレクトリ構成
+- base = リセットCSSやCSS変数などの設定値
+- general = サイト全体で使用できるUI等スタイルや便利(utility)スタイル
+*/
+
+@charset "utf-8";
+
+@use "base/font-face";
+@use "base/variable"; /* CSS Variables (Custom Properties) */
+@use "base/base";
+@use "base/print";
+
+@use "general/7-typography/bodytext";
+@use "general/7-typography/heading";
+@use "general/1-static-ui/card";
+@use "general/1-static-ui/table";
+@use "general/1-static-ui/toc";
+@use "general/6-layout/flex";

@@ -1,0 +1,96 @@
+@use "../../base/setting";
+
+.table-scroll {
+  width: 100%;
+  margin: auto;
+  @include setting.mq(sp) {
+    overflow-x: scroll;
+    overflow-y: auto;
+  }
+  .table {
+    white-space: pre;
+    @include setting.mq(dt) {
+      table-layout: fixed;
+    }
+  }
+}
+.sticky-box {
+  width: 100%;
+  height: 18.75rem;
+  overflow: scroll;
+}
+table {
+  margin-top: 2rem;
+  border-top: solid 0.0625rem hsla(0, 0%, 73%, 1);
+  border-left: solid 0.0625rem hsla(0, 0%, 73%, 1);
+  border-collapse: collapse;
+  &.-text-center {
+    text-align: center;
+  }
+  &.-text-right {
+    text-align: right;
+  }
+  > .caption {
+    margin: 0 0 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    &.-center {
+      text-align: center;
+    }
+    &.-right {
+      text-align: right;
+    }
+  }
+  tr > th,
+  tr > td {
+    width: 12rem;
+    border-right: solid 0.0625rem hsla(0, 0%, 73%, 1);
+    border-bottom: solid 0.0625rem hsla(0, 0%, 73%, 1);
+    vertical-align: top;
+    @include setting.mq(dt) {
+      padding: 0.75rem 1.5rem;
+    }
+    @include setting.mq(sp-tb) {
+      padding: 0.5rem;
+    }
+    &.empty {
+      background-image: linear-gradient(
+        to right top,
+        transparent 50%,
+        hsla(0, 0%, 73%, 1) 50%,
+        hsla(0, 0%, 73%, 1) 51%,
+        transparent 51%
+      );
+    }
+  }
+  tr > th {
+    background: hsla(0, 0%, 94%, 1);
+  }
+  tr > td {
+    background: hsla(0, 100%, 100%, 1);
+  }
+  tr > td.cell-highlight {
+    background: hsla(58, 100%, 89%, 1);
+  }
+  &.-head-sticky {
+    & tbody th {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+    }
+    & thead {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    & thead th.empty {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 3;
+    }
+  }
+}

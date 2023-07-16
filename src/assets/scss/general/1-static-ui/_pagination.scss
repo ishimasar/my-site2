@@ -1,0 +1,73 @@
+/**
+ * 全体汎用スタイル - ページネーション一式(リスト)
+*/
+
+@use "../../base/setting" as s;
+
+.gePagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @include s.mq(tb-dth) {
+    max-width: 50rem;
+    margin: 3rem auto auto;
+  }
+  @include s.mq(sp) {
+    max-width: 80vw;
+    margin: 2.5rem auto auto;
+  }
+  > li:not(:first-child) {
+    @include s.mq(tb-dth) {
+      margin-left: 2rem;
+    }
+    @include s.mq(sp) {
+      margin-left: 1rem;
+    }
+  }
+  & .link,
+  & .current {
+    display: block;
+    position: relative;
+    z-index: 1;
+    @include s.mq(tb-dth) {
+      padding: 0.6rem 0.8rem;
+      font-size: var(--font-size-e);
+    }
+    @include s.mq(sp) {
+      padding: 0.3rem 0.4rem;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(22deg);
+      border-radius: 48.5%;
+      z-index: -1;
+      @include s.mq(tb-dth) {
+        width: 2.3rem;
+        height: 3.25rem;
+        padding: 0.6rem 0.8rem;
+      }
+      @include s.mq(sp) {
+        width: 2rem;
+        height: 2.65rem;
+        padding: 0.6rem 0.8rem;
+      }
+    }
+  }
+  & .link {
+    color: var(--text-dark-color);
+    &::after {
+      border: 1px solid var(--logo-color);
+      background-color: var(--white);
+    }
+  }
+  & .current {
+    color: var(--white);
+    &::after {
+      background-color: var(--logo-color);
+    }
+  }
+}

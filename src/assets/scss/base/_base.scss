@@ -1,0 +1,435 @@
+/**
+ * # base.scss
+ * (1) A modern CSS reset
+ * (2) Composite custom styles in normalize.css + reset.css (Eric Mayer's). Inspired by Elad Shechter's RESET
+ * (3) Other useful initialization
+ * (4) For A11Y / WAI-ARIA
+ */
+
+/**
+ * ----------
+ * (1) A modern CSS reset
+ */
+
+body *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+/**
+ * ----------
+ * (2) Composite custom styles in normalize.css + reset.css
+ * normalize.css
+ */
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  /* 1 */
+  font-family: monospace;
+  /* 2 */
+  font-size: 1em;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+ */
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  line-height: 0;
+  font-size: 75%;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/**
+ * 1. Change the font styles in all browsers.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  /* 1 */
+  margin: 0;
+  line-height: 1.15;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type='button'],
+[type='reset'],
+[type='submit'],
+[role='button'] {
+  cursor: pointer;
+  appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  /* 3 */
+  white-space: normal;
+  color: inherit;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ */
+[type='search'] {
+  /* 1 */
+  outline-offset: -2px;
+  appearance: textfield;
+}
+
+/**
+ * reset.css
+ */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  padding: 0;
+  border-width: 0;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
+figure {
+  margin: 0;
+}
+
+input::-moz-focus-inner {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul,
+ol,
+dd {
+  list-style: none; // olの番号付きを利用する際は個別にdecimalを当てる
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
+/**
+ * ----------
+ * (3) Other useful initialization
+ */
+
+html {
+  /* All browsers without overlaying scrollbars */
+  text-size-adjust: 100%;
+  font-size: 100%;
+  /* for using REM units */
+  overflow-y: scroll;
+  /* apply a natural box layout model to all elements, but allowing components to change */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/**
+ * personal initialization style
+ */
+body {
+  min-height: 100vh;
+  margin: 0;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue,
+    Arial, Roboto, Yu Gothic, YuGothic, Hiragino Sans, Meiryo, sans-serif;
+  font-weight: 400;
+  font-feature-settings: 'pkna' 1;
+  color: var(--text-normal-color);
+  box-sizing: border-box;
+  direction: ltr;
+}
+
+/**
+ * personal initialization style
+ */
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+address {
+  margin-bottom: 1rem;
+  line-height: inherit;
+  font-style: normal;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  border-style: none;
+  vertical-align: middle;
+}
+
+svg {
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  caption-side: bottom;
+  text-align: left;
+  color: hsla(208, 7%, 46%, 1);
+}
+
+th {
+  text-align: inherit;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* Remove the default button styling in all browsers */
+button,
+input,
+select,
+textarea {
+  border-style: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+dfn {
+  font-style: normal;
+}
+
+/* Replace pointer cursor in disabled elements */
+[disabled] {
+  cursor: default;
+}
+
+/* Specify text selection background color and omit drop shadow */
+::-moz-selection {
+  background-color: hsla(213, 92%, 85%, 1);
+  text-shadow: none;
+  /* Required when declaring ::selection */
+  color: hsla(0, 0%, 0%, 1);
+}
+
+::selection {
+  background-color: hsla(213, 92%, 85%, 1);
+  text-shadow: none;
+  /* Required when declaring ::selection */
+  color: hsla(0, 0%, 0%, 1);
+}
+
+::-webkit-input-placeholder {
+  color: hsla(0, 0%, 44%, 1);
+}
+
+:-ms-input-placeholder {
+  color: hsla(0, 0%, 44%, 1);
+}
+
+::-moz-placeholder {
+  color: hsla(0, 0%, 44%, 1);
+}
+
+:placeholder-shown {
+  color: hsla(0, 0%, 44%, 1);
+}
+
+/**
+ * ----------
+ * (4) For A11Y / WAI-ARIA
+ * A11Y
+ */
+
+[tabindex='-1']:focus {
+  outline: none !important;
+}
+
+/* Define your own focus-ring style for all interactive elements */
+a:focus-visible,
+audio:focus-visible,
+button:focus-visible,
+details:focus-visible,
+summary:focus-visible,
+embed:focus-visible,
+iframe:focus-visible,
+img[usemap]:focus-visible,
+input:not([hidden]):focus-visible,
+keygen:focus-visible,
+label:focus-visible,
+object[usemap]:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+video:focus-visible,
+dialog:focus-visible,
+div:focus-visible,
+section:focus-visible {
+  outline: 0.125rem solid var(--focusring-color);
+  outline-offset: 0.0625rem;
+}
+
+/**
+ * WAI-ARIA
+ */
+
+/* Specify the progress cursor of updating elements */
+[aria-busy='true'] {
+  cursor: progress;
+}
+
+/* Specify the pointer cursor of trigger elements */
+[aria-controls] {
+  cursor: pointer;
+}
+
+/* Specify the unstyled cursor of disabled, not-editable, or otherwise inoperable elements */
+[aria-disabled] {
+  cursor: default;
+}
