@@ -35,15 +35,27 @@ export async function getStaticPaths() {
         <article class="artArticle">
           <p class="artMinRead">読了時間:{remarkPluginFrontmatter.minutesRead}分ほど</p>
           <h1>{remarkPluginFrontmatter.title}</h1>
+          <img src={remarkPluginFrontmatter.thumb} alt="アイキャッチ">
           <div class="artTimeContainer">
             <span class="artTime">公開日:<time datetime=""></time>{remarkPluginFrontmatter.publishDate}</span>
             <!-- span class="artTime">更新日:<time datetime=""></time>{remarkPluginFrontmatter.updateDate}</span -->
           </div>
-          <p class="artAuthor">著:
-            <a href="https://www.drifting-clouds.com/about">{remarkPluginFrontmatter.author}</a>
-          </p>
           <Content />
+          <hr style="margin-top: 2rem";>
+          <div style="text-align: right;">
+            <div>category: {remarkPluginFrontmatter.category}</div>
+            <div style="display: flex; justify-content: end;">
+              <div>tag:</div>
+              {remarkPluginFrontmatter.tags.map((tag: any) => (
+                <div style="padding-left: .5rem;">#{tag}</div>
+              ))}
+            </div>
+            <div class="artAuthor">Author:
+              <a class="link" href="https://www.drifting-clouds.com/about">{remarkPluginFrontmatter.author}</a>
+            </div>
+          </div>
         </article>
+        <a href="/blog/" class="geLinkButton">⬅ ブログ記事一覧へ</a>
       </main>
     </ArticleLayout>
   </body>
@@ -70,6 +82,7 @@ export async function getStaticPaths() {
     }
   }
   p.artMinRead {
+    padding-top: 0 !important;
     text-align: right;
     @include s.mq(dt) {
       margin-bottom: 2rem;
@@ -81,7 +94,6 @@ export async function getStaticPaths() {
     }
   }
   .artWrapper {
-
     position: relative;
     width: 100%;
     min-height: 40.3vh;
@@ -94,7 +106,10 @@ export async function getStaticPaths() {
       }
     }
     @include s.mq(sp-tb) {
-      padding-top: 2rem;
+      padding: {
+        top: 2rem;
+        bottom: 4rem;
+      }
     }
   }
   .artArticle {
@@ -189,13 +204,13 @@ export async function getStaticPaths() {
     &  time {
       font-family: var(--sentence-font);
     }
-    h1 + * + img {
+    h1 + img {
       display: block;
       margin: auto;
-      @include s.mq(tb-dth) {
-        width: 60%;
+      @include s.mq(dt) {
+        width: 42rem;
       }
-      @include s.mq(sp) {
+      @include s.mq(sp-tb) {
         width: 90%;
       }
     }
@@ -264,8 +279,13 @@ export async function getStaticPaths() {
       margin: 2rem 0 auto;
       padding-left: 1.25rem;
       > p {
-        font-size: var(--font-size-d);
         color: #737373;
+        @include s.mq(tb-dth) {
+          font-size: var(--font-size-d);
+        }
+        @include s.mq(sp) {
+          font-size: var(--font-size-c);
+        }
       }
       & a {
         text-decoration: underline;
@@ -290,7 +310,7 @@ export async function getStaticPaths() {
     justify-content: space-evenly;
     width: auto;
     height: 100%;
-    margin: auto;
+    margin: .5rem auto 0;
     @include s.mq(tb-dth) {
       max-width: 30rem;
     }
@@ -315,7 +335,17 @@ export async function getStaticPaths() {
   .artBorder {
     margin: 1.5rem auto 1.3rem;
   }
-  .artAuthor {
-    text-align: center;
+  div.artAuthor {
+    margin-top: .5rem;
+    padding-top: 0;
+    > .link {
+      text-decoration: underline;
+      color: var(--accent-color);
+      font-size: var(--font-size-c);
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
   }
 </style>

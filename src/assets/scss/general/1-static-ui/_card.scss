@@ -64,7 +64,7 @@
       height: 180px; /* 画像トリミングしたい枠の高さ */
     }
     @include s.mq(sp-tb) {
-      height: 130px;
+      height: 150px;
     }
   }
   .thumbnail {

@@ -19,8 +19,9 @@
   list-style-type: decimal;
   border: 1px dotted var(--line-color);
   line-height: 1.7;
+  font-size: var(--font-size-c);
   @include s.mq(dt) {
-    width: 30rem;
+    width: 42rem;
     padding: .75rem 4rem;
   }
   @include s.mq(sp-tb) {

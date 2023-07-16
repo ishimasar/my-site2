@@ -18,48 +18,59 @@ let description = 'ブログ記事一覧';
   </head>
   <body>
     <Layout title="ブログ記事一覧 | UKIGUMO CAFE">
-      <h1 class="geHeading1Subpage">
-        <span class="ja">ブログ記事一覧</span>
-      </h1>
-      <ul class="geFlexbox">
-        {
-          blogs.map((blog) => (
-            <li class="geCardBlog jsAppearanceMotion2">
-              <div class="frame">
-                <div class="imgContainer">
-                  <a href={`/blog/${blog.slug}`}>
-                    <img src={`${blog.data.thumb}`} alt="ブログ・サムネイル画像" decoding="async" class="thumbnail">
-                  </a>
+      <div class="blogWrapper">
+        <h1 class="geHeading1Subpage">
+          <span class="ja">ブログ記事一覧</span>
+        </h1>
+        <ul class="geFlexbox">
+          {
+            blogs.map((blog) => (
+              <li class="geCardBlog jsAppearanceMotion2">
+                <div class="frame">
+                  <div class="imgContainer">
+                    <a href={`/blog/${blog.slug}`}>
+                      <img src={`${blog.data.thumb}`} alt="ブログ・サムネイル画像" decoding="async" class="thumbnail">
+                    </a>
+                  </div>
+                  <div class="textContainer">
+                    <a href={`/blog/${blog.slug}`}>
+                      <h3 class="title">{blog.data.title}</h3>
+                    </a>
+                    <div class="excerpt">
+                      <p>{blog.data.description}</p>
+                    </div>
+                    <hr class="rule">
+                    <div class="dateContainer">
+                      <span class="date">投稿日:
+                        <time datetime={`${blog.data.publishDate}`} class="time">{blog.data.publishDate}</time>
+                      </span>
+                      <br class="geDisplaySp">｜
+                      <span class="date">更新日:
+                        <time datetime={`${blog.data.updateDate}`} class="time">{blog.data.updateDate}</time>
+                      </span>
+                    </div>
+                    <div class="tagContainer">
+                      {blog.data.tags.map((tag: any) => (
+                        <div class="tag">#{tag}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="categoryLabel">{blog.data.category}</div>
                 </div>
-                <div class="textContainer">
-                  <a href={`/blog/${blog.slug}`}>
-                    <h3 class="title">{blog.data.title}</h3>
-                  </a>
-                  <div class="excerpt">
-                    <p>{blog.data.description}</p>
-                  </div>
-                  <hr class="rule">
-                  <div class="dateContainer">
-                    <span class="date">投稿日:
-                      <time datetime={`${blog.data.publishDate}`} class="time">{blog.data.publishDate}</time>
-                    </span>
-                    <br class="geDisplaySp">｜
-                    <span class="date">更新日:
-                      <time datetime={`${blog.data.updateDate}`} class="time">{blog.data.updateDate}</time>
-                    </span>
-                  </div>
-                  <div class="tagContainer">
-                    {blog.data.tags.map((tag: any) => (
-                      <div class="tag">#{tag}</div>
-                    ))}
-                  </div>
-                </div>
-                <div class="categoryLabel">{blog.data.category}</div>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </Layout>
   </body>
 </html>
+
+<style lang="scss">
+  .blogWrapper {
+    padding: {
+      top: 2rem;
+      bottom: 4rem;
+    }
+  }
+</style>
