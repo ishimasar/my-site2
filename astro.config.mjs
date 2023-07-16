@@ -31,4 +31,5 @@ export default defineConfig({
   })],
   output: 'server',
   server: { port: 8080 },
+  site: 'https://ishimasar.github.io'
 });
