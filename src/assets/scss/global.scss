@@ -13,9 +13,10 @@ style.scss...style.cssのコンパイル前のひとまとめファイル
 @use "base/base";
 @use "base/print";
 
-@use "general/7-typography/bodytext";
-@use "general/7-typography/heading";
 @use "general/1-static-ui/card";
 @use "general/1-static-ui/table";
 @use "general/1-static-ui/toc";
 @use "general/6-layout/flex";
+@use "general/7-typography/bodytext";
+@use "general/7-typography/heading";
+@use "general/8-utility/display";
