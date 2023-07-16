@@ -30,6 +30,5 @@ export default defineConfig({
     gfm: true,
   })],
   server: { port: 8080 },
-  site: 'https://ishimasar.github.io',
-  base: '/dist',
+  output: 'server'
 });
