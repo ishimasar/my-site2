@@ -29,7 +29,7 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'append' }], rehypeHeadingIds],
     gfm: true,
   })],
-  output: 'server',
   server: { port: 8080 },
-  site: 'https://ishimasar.github.io'
+  site: 'https://ishimasar.github.io',
+  base: '/dist',
 });

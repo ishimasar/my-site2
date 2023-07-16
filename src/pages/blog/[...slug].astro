@@ -5,6 +5,8 @@ const { slug } = Astro.params as { slug: string };
 const entry = (await getEntryBySlug("blog", slug)) as CollectionEntry<"blog">;
 const { Content } = await entry.render();
 
+import { getCollection } from 'astro:content';
+
 import '../../assets/scss/global.scss'
 
 const { remarkPluginFrontmatter } = await entry.render();
@@ -13,6 +15,14 @@ import Head from '../../components/Head.astro';
 
 let title = remarkPluginFrontmatter.title;
 let description = remarkPluginFrontmatter.description;
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 ---
 <!DOCTYPE html>
 <html lang="ja">
