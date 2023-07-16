@@ -8,11 +8,13 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     ssr: {
-      noExternal: ['assets'],
+      noExternal: ['assets']
     },
     css: {
       preprocessorOptions: {
@@ -24,11 +26,20 @@ export default defineConfig({
   },
   integrations: [mdx({
     syntaxHighlight: 'shiki',
-    shikiConfig: { theme: 'material-theme-darker' },
-    remarkPlugins: [remarkMath, [remarkToc, { heading: "Contents"} ], remarkReadingTime],
-    rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'append' }], rehypeHeadingIds],
-    gfm: true,
+    shikiConfig: {
+      theme: 'material-theme-darker'
+    },
+    remarkPlugins: [remarkMath, [remarkToc, {
+      heading: "Contents"
+    }], remarkReadingTime],
+    rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, {
+      behavior: 'append'
+    }], rehypeHeadingIds],
+    gfm: true
   })],
-  server: { port: 8080 },
-  output: 'server'
+  server: {
+    port: 8080
+  },
+  output: 'server',
+  adapter: vercel()
 });
