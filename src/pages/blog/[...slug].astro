@@ -33,21 +33,21 @@ export async function getStaticPaths() {
     <ArticleLayout minutesRead={remarkPluginFrontmatter["minutesRead"]}>
       <main class="artWrapper">
         <article class="artArticle">
-          <p class="artMinRead">読了時間:{remarkPluginFrontmatter.minutesRead}分ほど</p>
+          <p class="artMinRead">{remarkPluginFrontmatter.minutesRead} minute read</p>
           <h1>{remarkPluginFrontmatter.title}</h1>
-          <img src={remarkPluginFrontmatter.thumb} alt="アイキャッチ">
+          <img src={remarkPluginFrontmatter.thumb} alt="アイキャッチ" width="371" height="160" decoding="async">
           <div class="artTimeContainer">
-            <span class="artTime">公開日:<time datetime=""></time>{remarkPluginFrontmatter.publishDate}</span>
-            <!-- span class="artTime">更新日:<time datetime=""></time>{remarkPluginFrontmatter.updateDate}</span -->
+            <span class="artTime">公開日: <time datetime=""></time>{remarkPluginFrontmatter.publishDate}</span>
+            <span class="artTime">更新日: <time datetime=""></time>{remarkPluginFrontmatter.updateDate}</span>
           </div>
           <Content />
-          <hr style="margin-top: 2rem";>
-          <div style="text-align: right;">
-            <div>category: {remarkPluginFrontmatter.category}</div>
-            <div style="display: flex; justify-content: end;">
-              <div>tag:</div>
+          <hr>
+          <div class="ta-r">
+            <div>Category: {remarkPluginFrontmatter.category}</div>
+            <div class="artTagWrap">
+              <div>Tag:</div>
               {remarkPluginFrontmatter.tags.map((tag: any) => (
-                <div style="padding-left: .5rem;">#{tag}</div>
+                <div class="pl8">#{tag}</div>
               ))}
             </div>
             <div class="artAuthor">Author:
@@ -79,6 +79,50 @@ export async function getStaticPaths() {
     &.fa-sync {
       width: 1.5em;
       padding-right: 0.3rem;
+    }
+  }
+  h2[id=contents] {
+    width: fit-content;
+    margin: 1.5rem auto 0;
+    padding: .25rem .5rem;
+    border-bottom: 1px solid var(--line-color);
+    text-align: center;
+    line-height: 1;
+    font-weight: 600;
+    font-size: var(--font-size-d);
+  }
+  h2[id=contents] + ul {
+    margin: .5rem auto;
+    list-style-type: decimal;
+    border: 1px dotted var(--line-color);
+    @include s.mq(dt) {
+      width: 42rem;
+      padding: .75rem 4rem;
+    }
+    @include s.mq(sp-tb) {
+      width: 90%;
+      padding: .5rem 1.5rem .75rem 2.5rem;
+    }
+    > li {
+      > a {
+        display: block;
+        margin: {
+        top: .25rem;
+        bottom: .25rem;
+      };
+        padding: {
+          top: .5rem;
+          bottom: .5rem;
+        };
+        @include s.mq(dt) {
+          line-height: 1.7;
+          font-size: var(--font-size-d);
+        }
+        @include s.mq(sp-tb) {
+          line-height: 1.5;
+          font-size: var(--font-size-c);
+        }
+      }
     }
   }
   p.artMinRead {
@@ -170,7 +214,7 @@ export async function getStaticPaths() {
         border-bottom: 1px solid var(--frame-color);
       }
     }
-    & h2 {
+    & h2:not([id=contents]) {
       @include s.mq(dt) {
         margin-top: 2.5rem;
       }
@@ -178,7 +222,7 @@ export async function getStaticPaths() {
         margin-top: 2rem;
       }
     }
-    > h2 {
+    > h2:not([id=contents]) {
       @extend %geHeading2Article;
     }
     > p {
@@ -279,7 +323,7 @@ export async function getStaticPaths() {
       margin: 2rem 0 auto;
       padding-left: 1.25rem;
       > p {
-        color: #737373;
+        color: hsla(0, 0%, 45%, 1);
         @include s.mq(tb-dth) {
           font-size: var(--font-size-d);
         }
@@ -297,12 +341,21 @@ export async function getStaticPaths() {
         left: 0;
         width: auto;
         height: 100%;
-        border-left: 4px solid #737373;
+        border-left: 4px solid hsla(0, 0%, 45%, 1);
       }
     }
     & small {
       display: block;
       margin-top: 0.25rem;
+    }
+    & hr {
+      width: 100%;
+      height: 1px;
+      border: none;
+      background-color: hsla(23, 36%, 23%, .8);
+    }
+    [style*="545454"] {
+      color: #b5b5b5 !important;
     }
   }
   .artTimeContainer {
@@ -332,8 +385,9 @@ export async function getStaticPaths() {
       padding-left: 0.4rem;
     }
   }
-  .artBorder {
-    margin: 1.5rem auto 1.3rem;
+  .artTagWrap {
+    display: flex;
+    justify-content: flex-end;
   }
   div.artAuthor {
     margin-top: .5rem;

@@ -18,7 +18,7 @@ let description = 'ブログ記事一覧';
   </head>
   <body>
     <Layout title="ブログ記事一覧 | UKIGUMO CAFE">
-      <div class="blogWrapper">
+      <div class="pt32 pb32">
         <h1 class="geHeading1Subpage">
           <span class="ja">ブログ記事一覧</span>
         </h1>
@@ -44,8 +44,7 @@ let description = 'ブログ記事一覧';
                       <span class="date">投稿日:
                         <time datetime={`${blog.data.publishDate}`} class="time">{blog.data.publishDate}</time>
                       </span>
-                      <br class="geDisplaySp">｜
-                      <span class="date">更新日:
+                      <span class="date">｜更新日:
                         <time datetime={`${blog.data.updateDate}`} class="time">{blog.data.updateDate}</time>
                       </span>
                     </div>
@@ -67,10 +66,4 @@ let description = 'ブログ記事一覧';
 </html>
 
 <style lang="scss">
-  .blogWrapper {
-    padding: {
-      top: 2rem;
-      bottom: 4rem;
-    }
-  }
 </style>

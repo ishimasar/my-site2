@@ -8,7 +8,6 @@ style.scss...style.cssのコンパイル前のひとまとめファイル
 
 @charset "utf-8";
 
-@use "base/font-face";
 @use "base/variable"; /* CSS Variables (Custom Properties) */
 @use "base/base";
 @use "base/print";
@@ -21,3 +20,4 @@ style.scss...style.cssのコンパイル前のひとまとめファイル
 @use "general/7-typography/bodytext";
 @use "general/7-typography/heading";
 @use "general/8-utility/display";
+@use "general/8-utility/helper";

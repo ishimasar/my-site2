@@ -7,7 +7,8 @@ export function remarkReadingTime() :Plugin {
     return function (tree, { data }) {
       const textOnPage = toString(tree);
       const stat = readingTime(textOnPage);
+      const hoge = stat;
 
-      data.astro.frontmatter.minutesRead = stat.minutes;
+      data.astro.frontmatter.minutesRead = Math.round(stat.minutes * 10) / 10;
     };
 }

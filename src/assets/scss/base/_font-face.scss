@@ -14,21 +14,21 @@
 //   font-display: swap;
 // }
 
-@font-face {
-  font-family: 'Brandon Grotesque Medium';
-  font-style: normal;
-  font-weight: normal;
-  src: url('~assets/font/BrandonGrotesque/Brandon_med.woff2') format('woff2');
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Brandon Grotesque Medium';
+//   font-style: normal;
+//   font-weight: normal;
+//   src: url('~assets/font/BrandonGrotesque/Brandon_med.woff2') format('woff2');
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: 'Brandon Grotesque Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: url('~assets/font/BrandonGrotesque/Brandon_bld.woff2') format('woff2');
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Brandon Grotesque Bold';
+//   font-style: normal;
+//   font-weight: normal;
+//   src: url('~assets/font/BrandonGrotesque/Brandon_bld.woff2') format('woff2');
+//   font-display: swap;
+// }
 
 // @font-face {
 //   font-family: "Brandon Text Regular";
@@ -39,13 +39,13 @@
 //   font-display: swap;
 // }
 
-@font-face {
-  font-family: 'Brandon Text Medium';
-  font-style: normal;
-  font-weight: normal;
-  src: url('~assets/font/BrandonText/BrandonText-Medium.woff2') format('woff2');
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Brandon Text Medium';
+//   font-style: normal;
+//   font-weight: normal;
+//   src: url('~assets/font/BrandonText/BrandonText-Medium.woff2') format('woff2');
+//   font-display: swap;
+// }
 
 // @font-face {
 //   font-family: "Brandon Text Bold";
@@ -93,24 +93,24 @@
 //   font-display: swap;
 // }
 
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-style: normal;
-  font-weight: 400;
-  src: url('~assets/font/NotoSerifJP-subset/NotoSerifJP-Regular-minimum.woff2')
-    format('woff2');
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Noto Serif JP';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url('~assets/font/NotoSerifJP-subset/NotoSerifJP-Regular-minimum.woff2')
+//     format('woff2');
+//   font-display: swap;
+// }
 
-// Androidシステムフォントデフォルトにserif/明朝体がないためNoto Serif JP(サブセット)を使用
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-style: bold;
-  font-weight: 700;
-  src: url('~assets/font/NotoSerifJP-subset/NotoSerifJP-Bold-minimum.woff2')
-    format('woff2');
-  font-display: swap;
-}
+// // Androidシステムフォントデフォルトにserif/明朝体がないためNoto Serif JP(サブセット)を使用
+// @font-face {
+//   font-family: 'Noto Serif JP';
+//   font-style: bold;
+//   font-weight: 700;
+//   src: url('~assets/font/NotoSerifJP-subset/NotoSerifJP-Bold-minimum.woff2')
+//     format('woff2');
+//   font-display: swap;
+// }
 
 // @font-face {
 //   font-family: "YakuHanJPs";
