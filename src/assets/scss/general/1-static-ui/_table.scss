@@ -24,10 +24,10 @@ table {
   border-top: solid 0.0625rem hsla(0, 0%, 73%, 1);
   border-left: solid 0.0625rem hsla(0, 0%, 73%, 1);
   border-collapse: collapse;
-  &.-text-center {
+  & [align=center] {
     text-align: center;
   }
-  &.-text-right {
+  & [align=right] {
     text-align: right;
   }
   > .caption {

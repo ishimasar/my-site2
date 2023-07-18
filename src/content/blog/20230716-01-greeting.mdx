@@ -1,27 +1,44 @@
 ---
 layout: '../../layouts/ArticleLayout.astro'
-title: "軽量Webフレームワーク・Astroでサイトリニューアル"
+title: "軽量Webフレームワーク・AstroでMarkdown記述式のブログサイトをリニューアル"
 author: "Cloudy knot"
 publishDate: "2023.07.16"
-updateDate: "2023.07.17"
-description: "Markdownでサクサク書ける、オールインワン軽量Webフレームワーク・Astroでブログサイトを再構築しました。"
+updateDate: "2023.07.18"
+description: "Markdownでサクサク書ける、オールインワン軽量Webフレームワーク・Astroでブログサイトを構築した。"
 thumb: "/image/blog/thumb1.webp"
-category: "Web / Software"
-tags: ["blog", "astro"]
+category: "Coding/IT"
+tags: ["blog", "astro", "markdown"]
 ---
 ## Contents
 
-## オールインワン軽量Webフレームワーク・Astroでブログサイトを再構築
+## オールインワン軽量WebフレームワークAstroでブログサイトを構築
 
-やっとたどり着いた理想のブログ執筆環境。Markdownでサクサク書ける、オールインワン軽量Webフレームワーク・[Astro](https://docs.astro.build/ja/getting-started/)でブログサイトを再構築した話。
+やっとたどり着いた自分にとって理想のブログ執筆環境。Markdown<sup>1</sup>でサクサク書ける(厳密にはMarkdown + JSXな[MDX](https://mdxjs.com/)を採用)、オールインワン軽量Webフレームワーク・[Astro](https://docs.astro.build/ja/getting-started/)でブログサイトを構築した話。
 
-[参照元: UKIGUMO CAFE](https://www.drifting-clouds.com/blog)
+> 1: Markdown(マークダウン)は、文書を記述するための軽量マークアップ言語のひとつである。 本来はプレーンテキスト形式で手軽に書いた文書からHTMLを生成するために開発されたものである。
+> 
+> 引用: [Markdown - Wikipedia](https://ja.wikipedia.org/wiki/Markdown)
 
-もう少し読み応えはあっても良いのかもしれませんね。田中はそんなふうにささやいたように思えただけだったのかもしれない。とにかく早く家に帰りたい。そう思うのも束の間、突然ヒグマが雄叫びとともに襲いかかってくるような来ないような、幸子はそんな心持ちであった。
+始め方は簡単。CLIを使用して指定ディレクトリ上で以下のシェルコマンドを入力。
 
-これは**強調用のスタイル**。こちらは*準強調用のスタイル* 😅
+```shell
+  npm create astro (または yarn create astro)
+```
 
-以下は、Webブラウザで数学表記($\LaTeX$)を表示するクロスブラウザJavaScriptライブラリ・[$\KaTeX$](https://katex.org/)で描画している。
+AstroはIslands Architecture(アイランドアーキテクチャ)と名付けらたフロントエンドアーキテクトを採用しており、描画パフォーマンスに大変優れたWebフレームワーク/Static Site Generatorだ。フレームワーク自体に余計なJavaScriptオーバーヘッドがないデフォルトゼロJSをうたっており、生成コンテンツの描画速度は体感上も、パフォーマンステストスコアもかなり良好だ。
+
+React、Svelte、Vue、Litなど多くのJavaScriptフレームワークをラップ/組み合わせて使用することもできる。このブログサイトは複雑さを極力回避したかったのでAstro単体利用に留めている。ほかにも多くの機能・開発体験を備えた、今後期待の比較的新しいフレームワークだ(2023年7月執筆時点)。
+
+## Markdownだけで実現できる表現性、スタイル
+
+Markdownのシンプルな記法だけではまだ正直ブログとして表現面で心許ない。セマンティックにおいてもHTMLには到底及ばない。だが、一応表現のバリエーションとして最低限+くらいのレベルはクリア・確保できていると思う(ことにした)。
+
+これは`**(任意の文字)**`と記述することで、**強調用(strong要素)のスタイル**となる。  
+そしてこちら`*(任意の文字)*`と記述し*準強調用(em要素)のスタイル*として使用する。
+
+各種絵文字(emoji)も使用可能 ☞ 😅✌️。
+
+以下は、美麗な数式利用に適した組版システム・ $\TeX$ (テックまたはテフ)の描画ができるJavaScriptライブラリ・[ $\KaTeX$ ](https://katex.org/)で数式を表示している。`$$~$$`や`$~$`(こちらはインライン表示用)といった記法で利用が可能。
 
 $$
   \sum_{\substack{0<i<m\\0<j<n}}
@@ -30,10 +47,35 @@ $$
   \sqrt{\smash[b]{y}} + \cfrac{a}{1 + \cfrac{1}{b}}
 $$
 
-HTML
+また、以下のコードのシンタックスハイライト(構文強調/Syntax highlight)には、[Shiki](https://shiki.matsu.io/)のmaterial-theme-darkerというテーマを使用している。コードブロックは`(バッククォート)3つで文字の両側を囲うことで、インラインコードは1つで囲うことで実現する。
 
-```html
-  <p>ppppp</p>
+HTML(Astro)
+
+```astro
+  <article class="artArticle">
+    <h1>{remarkPluginFrontmatter.title}</h1>
+    <img src={remarkPluginFrontmatter.thumb} alt="アイキャッチ" width="371" height="160" decoding="async">
+    <Content />
+  </article>
+```
+
+CSS(Sass/scss記法)
+
+```css
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+
+  h2[id=contents] {
+    width: fit-content;
+    margin: 1.5rem auto 0;
+    padding: .25rem .5rem;
+    border-bottom: 1px solid var(--line-color);
+    text-align: center;
+    line-height: 1;
+    font-weight: 600;
+    font-size: var(--font-size-d);
+  }
 ```
 
 JavaScript
@@ -62,26 +104,57 @@ JavaScript
   export  $initHighlight;
 ```
 
-## hogeがhogeってる
+## リスト(list)や表組み(table)も。記述例付き
 
-* hoge1
-* hoge2
-* hoge3
+こんな感じ☟
 
-> 引用: [金剛寺さんは面倒臭い (7)](https://www.amazon.co.jp/%E9%87%91%E5%89%9B%E5%AF%BA%E3%81%95%E3%82%93%E3%81%AF%E9%9D%A2%E5%80%92%E8%87%AD%E3%81%84-7-%E3%82%B2%E3%83%83%E3%82%B5%E3%83%B3%E5%B0%91%E5%B9%B4%E3%82%B5%E3%83%B3%E3%83%87%E3%83%BC%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9-%E3%81%A8%E3%82%88%E7%94%B0-%E3%81%BF%E3%81%AE%E3%82%8B/dp/4098502577/ref=rw_dp_pbnx_fo_vol_7)
+* Unordered list 1
+* Unordered list 2
+* Unordered list 3
 
-|  TH  |  TH  |  TH  |
-| ---- | ---- | ---- |
-|  TD  |  TD  |  TD  |
-|  TD  |  TD  |  TD  |
+1. Ordered list 1
+2. Ordered list 2
+3. Ordered list 3
 
-## hogeがhogeってない
+上:順序なしリストと下:順序付きリストのMarkdown
 
-* hoge-1
-* hoge-2
-* hoge-3
+```markdown
+  * Unordered list 1
+  * Unordered list 2
+  * Unordered list 3
 
-|  TH  |  TH  |  TH  |
-| ---- | ---- | ---- |
-|  TD  |  TD  |  TD  |
-|  TD  |  TD  |  TD  |
+  1. Ordered list 1
+  2. Ordered list 2
+  3. Ordered list 3
+```
+
+---
+
+| TH | TH | TH | TH |
+| :-- | :-- | :-- | :-- |
+| TD | TD | TD | TD |
+| TD | TD | TD | TD |
+
+| TH | TH | TH |
+| :--: | :--: | :--: |
+| TD | TD | TD |
+| TD | TD | TD |
+
+上:左寄せの表(デフォルト)と下:中央寄せの表のMarkdown
+
+```markdown
+  | TH | TH | TH | TH |
+  | --- | --- | --- | --- |
+  | TD | TD | TD | TD |
+  | TD | TD | TD | TD |
+
+  | TH | TH | TH |
+  | :--: | :--: | :--: |
+  | TD | TD | TD |
+  | TD | TD | TD |
+
+```
+
+## 最後に
+
+Web・IT系の制作開発が主戦場の自分はMarkdownでメモを取る癖がついているため、この執筆環境はかなり親和性が高そうだ。今後はメモレベルからでも書き留めたことを種として、スピーディーに公開することでアウトプットの量・質ともに高めていくことを目標に掲げたい。

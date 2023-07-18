@@ -66,14 +66,13 @@ export async function getStaticPaths() {
   @use '../../assets/scss/general/7-typography/heading' as heading;
   @use '../../assets/scss/general/7-typography/bodytext' as body;
 
-  [aria-hidden] {
-    display: none;
-  }
-
   .math.math-display {
     margin: 1rem auto auto;
   }
-
+  a .math.math-inline .katex *,
+  a[href*=katex] {
+    text-decoration: none !important;
+  }
   .svg-inline--fa.fa-w-16 {
     &.fa-history,
     &.fa-sync {
@@ -226,7 +225,7 @@ export async function getStaticPaths() {
       @extend %geHeading2Article;
     }
     > p {
-      padding-top: 1rem;
+      margin-top: 1.5rem;
       font-family: var(--sentence-font);
       @include s.mq(dt) {
         font-size: var(--font-size-d);
@@ -240,7 +239,7 @@ export async function getStaticPaths() {
           }
         }
         & * {
-          text-decoration: underline !important;
+          text-decoration: underline;
         }
       }
     }
@@ -308,19 +307,34 @@ export async function getStaticPaths() {
         font-size: var(--font-size-b);
       }
     }
-    > ul:not([id=contents] + ul) {
+    & p > code {
+      margin: -.2em .3em 0;
+      padding: .1em .4em .15em;
+      background-color: #efefef;
+      border-radius: 3px;
+    }
+    > ul:not([id=contents] + ul),
+    > ol {
+      padding: {
+        top: 1rem;
+        left: 1.5em;
+      }
       line-height: 1.7;
-      padding-top: 1rem;
       font-family: var(--sentence-font);
       font-size: var(--font-size-d);
-      ＞ li {
-        padding-left: 1rem;
-        text-indent: 1rem;
+      & li {
+        padding: .5rem 0;
       }
+    }
+    > ul {
+      list-style: disc;
+    }
+    > ol {
+      list-style: decimal;
     }
     & blockquote {
       position: relative;
-      margin: 2rem 0 auto;
+      margin: 1.5rem 0 auto;
       padding-left: 1.25rem;
       > p {
         color: hsla(0, 0%, 45%, 1);
@@ -332,7 +346,12 @@ export async function getStaticPaths() {
         }
       }
       & a {
+        color: var(--accent-color);
         text-decoration: underline;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
       }
       &::before {
         content: '';
