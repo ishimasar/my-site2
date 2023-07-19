@@ -8,13 +8,14 @@ import '../../assets/scss/global.scss'
 
 import Head from '../../components/Head.astro';
 
-let title = 'ブログ記事一覧';
-let description = 'ブログ記事一覧';
+let title = 'ブログ記事一覧 | UKIGUMO CAFE - ブログ・ポートフォリオサイト';
+let description = 'UKIGUMO CAFE(浮雲カフェ)という架空のカフェサイトのブログ記事一覧ページです。本当はWeb/IT制作系の情報発信などを中心とした石井将直(屋号:Cloudy Knot)によるポートフォリオサイトです。';
+let permalink = 'https://nova.drifting-clouds.com/blog/'
 ---
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <Head {title} {description} />
+    <Head {title} {description} {permalink} />
   </head>
   <body>
     <Layout title="ブログ記事一覧 | UKIGUMO CAFE">
@@ -60,6 +61,7 @@ let description = 'ブログ記事一覧';
             ))
           }
         </ul>
+        <a href="https://www.drifting-clouds.com/" class="geLinkButton">⬅ ホームへ</a>
       </div>
     </Layout>
   </body>
