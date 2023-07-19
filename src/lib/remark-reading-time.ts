@@ -1,4 +1,4 @@
-import type { Plugin } from "unified";
+import type { Plugin } from 'unified';
 
 import readingTime from 'reading-time';
 import { toString } from 'mdast-util-to-string';
