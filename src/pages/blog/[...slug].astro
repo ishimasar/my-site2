@@ -43,7 +43,7 @@ export async function getStaticPaths() {
           <Content />
           <hr>
           <div class="ta-r">
-            <div>Category: {remarkPluginFrontmatter.category}</div>
+            <div class="artCateWrap">Category: {remarkPluginFrontmatter.category}</div>
             <div class="artTagWrap">
               <div>Tag:</div>
               {remarkPluginFrontmatter.tags.map((tag: any) => (
@@ -321,7 +321,12 @@ export async function getStaticPaths() {
       }
       line-height: 1.7;
       font-family: var(--sentence-font);
-      font-size: var(--font-size-d);
+      @include s.mq(tb-dth) {
+              font-size: var(--font-size-d);font-size: var(--font-size-d);
+      }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
+      }
       & li {
         padding: .5rem 0;
       }
@@ -370,6 +375,7 @@ export async function getStaticPaths() {
     & hr {
       width: 100%;
       height: 1px;
+      margin-top: 1rem;
       border: none;
       background-color: hsla(23, 36%, 23%, .8);
     }
@@ -408,13 +414,27 @@ export async function getStaticPaths() {
     display: flex;
     justify-content: flex-end;
   }
+  .artCateWrap,
+  .artTagWrap {
+    @include s.mq(tb-dth) {
+      font-size: var(--font-size-d);
+    }
+    @include s.mq(sp) {
+      font-size: var(--font-size-c);
+    }
+  }
   div.artAuthor {
     margin-top: .5rem;
     padding-top: 0;
     > .link {
       text-decoration: underline;
       color: var(--accent-color);
-      font-size: var(--font-size-c);
+      @include s.mq(tb-dth) {
+        font-size: var(--font-size-d);
+      }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
+      }
       &:hover,
       &:focus {
         text-decoration: none;
