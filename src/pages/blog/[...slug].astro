@@ -40,7 +40,7 @@ const description = remarkPluginFrontmatter.description;
     <ArticleLayout minutesRead={remarkPluginFrontmatter["minutesRead"]}>
       <main class="artWrapper">
         <article class="artArticle">
-          <p class="artMinRead">{remarkPluginFrontmatter.minutesRead} minute read</p>
+          <p class="artMinRead">Read in about {remarkPluginFrontmatter.minutesRead} minutes</p>
           <h1>{remarkPluginFrontmatter.title}</h1>
           <img src={remarkPluginFrontmatter.thumb} alt="アイキャッチ" width="371" height="160" decoding="async">
           <div class="artTimeContainer">
