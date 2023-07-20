@@ -1,28 +1,35 @@
 ---
-import ArticleLayout from "../../layouts/ArticleLayout.astro";
-import { getEntryBySlug, CollectionEntry } from "astro:content";
-const { slug } = Astro.params as { slug: string };
-const entry = (await getEntryBySlug("blog", slug)) as CollectionEntry<"blog">;
-const { Content } = await entry.render();
+import { getEntryBySlug, CollectionEntry, getCollection } from 'astro:content';
+import type { GetStaticPathsOptions, Page } from 'astro';
 
-import { getCollection } from 'astro:content';
-
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Head from '../../components/Head.astro';
 import '../../assets/scss/global.scss'
 
-const { remarkPluginFrontmatter } = await entry.render();
+type Props = {
+    page: Page<CollectionEntry<'blog'>>;
+};
 
-import Head from '../../components/Head.astro';
-
-let title = remarkPluginFrontmatter.title;
-let description = remarkPluginFrontmatter.description;
-
-export async function getStaticPaths() {
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const blogEntries = await getCollection('blog');
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
+  return paginate(
+    (await getCollection('blog')).sort(
+        (a, b) => b.data.date.getTime() - a.data.date.getTime()
+    ),
+    { pageSize: 20 }
+  );
 }
+
+const { slug } = Astro.params as { slug: string };
+const entry = (await getEntryBySlug('blog', slug)) as CollectionEntry<'blog'>;
+const { Content, remarkPluginFrontmatter } = await entry.render();
+const { page } = Astro.props;
+const title = remarkPluginFrontmatter.title;
+const description = remarkPluginFrontmatter.description;
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -65,8 +72,8 @@ export async function getStaticPaths() {
 
 <style is:global lang="scss">
   @use "../../assets/scss/base/setting" as s;
-  @use '../../assets/scss/general/7-typography/heading' as heading;
-  @use '../../assets/scss/general/7-typography/bodytext' as body;
+  @use "../../assets/scss/general/7-typography/heading" as heading;
+  @use "../../assets/scss/general/7-typography/bodytext" as body;
 
   .math.math-display {
     margin: 1rem auto auto;

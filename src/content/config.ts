@@ -1,7 +1,7 @@
-// 1. `astro:content` をインポートします
-import { z, defineCollection } from "astro:content";
+// 1. `astro:content` をインポート
+import { z, defineCollection } from 'astro:content';
 
-// 2. 記事のスキーマを定義します。zodを利用したバリデーションを行います。
+// 2. 記事のスキーマを定義。zodを利用したバリデーション
 const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
@@ -14,7 +14,7 @@ const blogCollection = defineCollection({
     tags: z.array(z.string()),
   }),
 });
-// 3. ブログ一覧を取得するため、collections　として定義します
+// 3. ブログ一覧を取得するため、collectionsとして定義
 export const collections = <const>{
   blog: blogCollection,
 };

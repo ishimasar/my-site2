@@ -1,16 +1,13 @@
 ---
-import Layout from '../../layouts/ArticleLayout.astro';
 import { getCollection } from 'astro:content';
-
-const blogs = await getCollection('blog');
-
+import Layout from '../../layouts/ArticleLayout.astro';
+import Head from '../../components/Head.astro';
 import '../../assets/scss/global.scss'
 
-import Head from '../../components/Head.astro';
-
-let title = 'ブログ記事一覧 | UKIGUMO CAFE - ブログ・ポートフォリオサイト';
-let description = 'UKIGUMO CAFE(浮雲カフェ)という架空のカフェサイトのブログ記事一覧ページです。本当はWeb/IT制作系の情報発信などを中心とした石井将直(屋号:Cloudy Knot)によるポートフォリオサイトです。';
-let permalink = 'https://nova.drifting-clouds.com/blog/'
+const blogs = await getCollection('blog');
+const title = 'ブログ記事一覧 | UKIGUMO CAFE - ブログ・ポートフォリオサイト';
+const description = 'UKIGUMO CAFE(浮雲カフェ)という架空のカフェサイトのブログ記事一覧ページです。本当はWeb/IT制作系の情報発信などを中心とした石井将直(屋号:Cloudy Knot)によるポートフォリオサイトです。';
+const permalink = 'https://nova.drifting-clouds.com/blog/'
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -66,6 +63,3 @@ let permalink = 'https://nova.drifting-clouds.com/blog/'
     </Layout>
   </body>
 </html>
-
-<style lang="scss">
-</style>
