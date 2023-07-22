@@ -1,6 +1,5 @@
 ---
 import { getEntryBySlug, CollectionEntry, getCollection } from 'astro:content';
-import type { GetStaticPathsOptions, Page } from 'astro';
 
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import Head from '../../components/Head.astro';
@@ -10,24 +9,17 @@ type Props = {
     page: Page<CollectionEntry<'blog'>>;
 };
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
-  return paginate(
-    (await getCollection('blog')).sort(
-        (a, b) => b.data.date.getTime() - a.data.date.getTime()
-    ),
-    { pageSize: 20 }
-  );
 }
 
 const { slug } = Astro.params as { slug: string };
 const entry = (await getEntryBySlug('blog', slug)) as CollectionEntry<'blog'>;
 const { Content, remarkPluginFrontmatter } = await entry.render();
-const { page } = Astro.props;
 const title = remarkPluginFrontmatter.title;
 const description = remarkPluginFrontmatter.description;
 ---

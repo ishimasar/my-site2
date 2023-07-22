@@ -1,13 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../../layouts/ArticleLayout.astro';
 import Head from '../../components/Head.astro';
 import '../../assets/scss/global.scss'
 
-const blogs = await getCollection('blog');
 const title = 'ブログ記事一覧 | UKIGUMO CAFE - ブログ・ポートフォリオサイト';
 const description = 'UKIGUMO CAFE(浮雲カフェ)という架空のカフェサイトのブログ記事一覧ページです。本当はWeb/IT制作系の情報発信などを中心とした石井将直(屋号:Cloudy Knot)によるポートフォリオサイトです。';
-const permalink = 'https://nova.drifting-clouds.com/blog/'
+const permalink = 'https://nova.drifting-clouds.com/blog/';
+
+const allPosts = await Astro.glob('../../content/blog/*.{md,mdx}');
+const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
+
+const sortedPosts = nonDraftPosts.sort((a, b) => {
+  const aDate = new Date(a.frontmatter.publishDate);
+  const bDate = new Date(b.frontmatter.publishDate);
+  return bDate.getTime() - aDate.getTime();
+});
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -22,37 +29,37 @@ const permalink = 'https://nova.drifting-clouds.com/blog/'
         </h1>
         <ul class="geFlexbox">
           {
-            blogs.map((blog) => (
+            sortedPosts.map((blog) => (
               <li class="geCardBlog jsAppearanceMotion2">
                 <div class="frame">
                   <div class="imgContainer">
-                    <a href={`/blog/${blog.slug}`}>
-                      <img src={`${blog.data.thumb}`} alt="ブログ・サムネイル画像" decoding="async" class="thumbnail">
+                    <a href={`/blog/${blog.frontmatter.slug}`}>
+                      <img src={`${blog.frontmatter.thumb}`} alt="ブログ・サムネイル画像" decoding="async" class="thumbnail">
                     </a>
                   </div>
                   <div class="textContainer">
-                    <a href={`/blog/${blog.slug}`}>
-                      <span class="title">{blog.data.title}</span>
+                    <a href={`/blog/${blog.frontmatter.slug}`}>
+                      <span class="title">{blog.frontmatter.title}</span>
                     </a>
                     <div class="excerpt">
-                      <p>{blog.data.description}</p>
+                      <p>{blog.frontmatter.description}</p>
                     </div>
                     <hr class="rule">
                     <div class="dateContainer">
                       <span class="date">投稿日:
-                        <time datetime={`${blog.data.publishDate}`} class="time">{blog.data.publishDate}</time>
+                        <time datetime={`${blog.frontmatter.publishDate}`} class="time">{blog.frontmatter.publishDate}</time>
                       </span>
                       <span class="date">｜更新日:
-                        <time datetime={`${blog.data.updateDate}`} class="time">{blog.data.updateDate}</time>
+                        <time datetime={`${blog.frontmatter.updateDate}`} class="time">{blog.frontmatter.updateDate}</time>
                       </span>
                     </div>
                     <div class="tagContainer">
-                      {blog.data.tags.map((tag: any) => (
+                      {blog.frontmatter.tags.map((tag: any) => (
                         <div class="tag">#{tag}</div>
                       ))}
                     </div>
                   </div>
-                  <div class="categoryLabel">{blog.data.category}</div>
+                  <div class="categoryLabel">{blog.frontmatter.category}</div>
                 </div>
               </li>
             ))
