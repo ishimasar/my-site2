@@ -18,7 +18,7 @@ const filteredPosts = allPosts.filter((posts: any) =>
     <BaseLayout>
       <div class="bloglistWrap">
         <h1 class="geHeading1Subpage">
-          <span class="ja"> {tag} タグ</span>
+          <span class="ja"> {tag} タグの記事</span>
         </h1>
         <ul class="geFlexbox -card-app">
           {
@@ -46,9 +46,9 @@ const filteredPosts = allPosts.filter((posts: any) =>
                         <time datetime={`${post.frontmatter.updateDate}`} class="time">{post.frontmatter.updateDate}</time>
                       </span>
                     </div>
-                    <div class="categoryContainer">
+                    <div class="tagContainer">
                       {post.frontmatter.tags.map((tag: any) => (
-                        <div class="category">#{tag}</div>
+                        <div class="tag">#{tag}</div>
                       ))}
                     </div>
                   </div>
@@ -58,7 +58,7 @@ const filteredPosts = allPosts.filter((posts: any) =>
             ))
           }
         </ul>
-        <a href="/blog/tags/" class="geLinkButton">⬅ タグ一覧へ</a>
+        <a href="/blog/tags/" class="geLinkButton">⬅ すべてのタグへ</a>
       </div>
     </BaseLayout>
   </body>
