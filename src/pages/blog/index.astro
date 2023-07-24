@@ -85,12 +85,20 @@ const sortedPosts = nonDraftPosts.sort((a, b) => {
       bottom: 4rem;
     };
     background-color: #fbf5ee;
+    @include s.mq(sp) {
+      height: 100%;
+    }
   }
   .filterContainer {
     display: flex;
     justify-content: center;
-    gap: 8rem;
     font-size: var(--font-size-d);
+    @include s.mq(dt) {
+      gap: 8rem;
+    }
+    @include s.mq(sp-tb) {
+      gap: 4rem;
+    }
     & .category {
       color: var(--accent-color);
       text-decoration: underline;
