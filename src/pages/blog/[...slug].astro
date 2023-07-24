@@ -1,7 +1,7 @@
 ---
 import { getEntryBySlug, CollectionEntry, getCollection } from 'astro:content';
 
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Head from '../../components/Head.astro';
 import '../../assets/scss/global.scss'
 
@@ -29,10 +29,13 @@ const description = remarkPluginFrontmatter.description;
     <Head {title} {description} />
   </head>
   <body>
-    <ArticleLayout minutesRead={remarkPluginFrontmatter["minutesRead"]}>
+    <BaseLayout minutesRead={remarkPluginFrontmatter["minutesRead"]}>
       <main class="artWrapper">
         <article class="artArticle">
-          <p class="artMinRead">Read in about {remarkPluginFrontmatter.minutesRead} minutes</p>
+          <div class="geFlexbox mb20">
+            <div class="artBacklinkWrap"><a class="link" href="../blog/" title="backlink">　↼　</a></div>
+            <p class="artMinRead">Read in about {remarkPluginFrontmatter.minutesRead} minutes</p>
+          </div>
           <h1>{remarkPluginFrontmatter.title}</h1>
           <img src={remarkPluginFrontmatter.thumb} alt="アイキャッチ" width="371" height="160" decoding="async">
           <div class="artTimeContainer">
@@ -56,9 +59,13 @@ const description = remarkPluginFrontmatter.description;
             </div>
           </div>
         </article>
+        <div class="filterContainer mt48">
+          <a class="category" href="/blog/category/">記事カテゴリー一覧</a>
+          <a class="tag" href="/blog/tags/">記事タグ一覧</a>
+        </div>
         <a href="/blog/" class="geLinkButton">⬅ ブログ記事一覧へ</a>
       </main>
-    </ArticleLayout>
+    </BaseLayout>
   </body>
 </html>
 
@@ -125,15 +132,25 @@ const description = remarkPluginFrontmatter.description;
       }
     }
   }
-  p.artMinRead {
+  .artBacklinkWrap {
+    width: 45%;
+    margin-right: auto;
+    > .link {
+      padding: {
+        top: .5rem;
+        bottom: .5rem;
+      }
+      font-size: var(--font-size-f);
+    }
+  }
+  .artMinRead {
+    width: auto;
     padding-top: 0 !important;
     text-align: right;
     @include s.mq(dt) {
-      margin-bottom: 2rem;
       font-size: var(--font-size-c);
     }
     @include s.mq(sp-tb) {
-      margin-bottom: 1.5rem;
       font-size: var(--font-size-b);
     }
   }
@@ -436,6 +453,29 @@ const description = remarkPluginFrontmatter.description;
       @include s.mq(sp) {
         font-size: var(--font-size-c);
       }
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .filterContainer {
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    font-size: var(--font-size-d);
+    & .category {
+      color: var(--accent-color);
+      text-decoration: underline;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+    & .tag {
+      color: hsla(136, 78%, 22%, 1);
+      text-decoration: underline;
       &:hover,
       &:focus {
         text-decoration: none;

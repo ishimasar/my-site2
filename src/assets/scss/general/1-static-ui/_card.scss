@@ -176,10 +176,10 @@
     color: var(--white);
     transition: all var(--ease-out-cubic) 0.35s 0.01s;
     @include s.mq(tb-dth) {
-      padding: 0.25rem 0.4rem;
+      padding: 0.25rem 0.75rem;
     }
     @include s.mq(sp) {
-      padding: 0.15rem 0.25rem;
+      padding: 0.25rem 0.5rem;
     }
   }
 }

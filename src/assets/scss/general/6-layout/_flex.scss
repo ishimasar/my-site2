@@ -9,15 +9,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: stretch;
-  width: 90vw;
-  max-width: 100rem;
   margin: auto;
-  @include s.mq(dt) {
-    margin-top: 2rem;
-  }
-  @include s.mq(sp-tb) {
-    margin-top: 1.5rem;
-  }
   &::after,
   &::before {
     content: "";
@@ -27,5 +19,12 @@
   }
   &::before {
     order: 1;
+  }
+  &.-center {
+    justify-content: center;
+  }
+  &.-card-app {
+    width: 90vw;
+    max-width: 100rem;
   }
 }

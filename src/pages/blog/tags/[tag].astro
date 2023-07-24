@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Head from '../../../components/Head.astro';
+import '../../../assets/scss/global.scss'
+
+const allPosts = await Astro.glob("../../../content/blog/*.{md,mdx}");
+const { tag } = Astro.params;
+const filteredPosts = allPosts.filter((posts: any) =>
+  posts.frontmatter.tags.includes(tag)
+);
+---
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <Head />
+  </head>
+  <body>
+    <BaseLayout>
+      <div class="bloglistWrap">
+        <h1 class="geHeading1Subpage">
+          <span class="ja"> {tag} タグの記事</span>
+        </h1>
+        <ul class="geFlexbox -card-app">
+          {
+            filteredPosts.map((post: any) => (
+              <li class="geCardBlog">
+                <div class="frame">
+                  <div class="imgContainer">
+                    <a href={`/blog/${post.frontmatter.slug}`}>
+                      <img src={`${post.frontmatter.thumb}`} alt="ブログ・サムネイル画像" decoding="async" class="thumbnail">
+                    </a>
+                  </div>
+                  <div class="textContainer">
+                    <a href={`/blog/${post.frontmatter.slug}`}>
+                      <span class="title">{post.frontmatter.title}</span>
+                    </a>
+                    <div class="excerpt">
+                      <p>{post.frontmatter.description}</p>
+                    </div>
+                    <hr class="rule">
+                    <div class="dateContainer">
+                      <span class="date">投稿日:
+                        <time datetime={`${post.frontmatter.publishDate}`} class="time">{post.frontmatter.publishDate}</time>
+                      </span>
+                      <span class="date">｜更新日:
+                        <time datetime={`${post.frontmatter.updateDate}`} class="time">{post.frontmatter.updateDate}</time>
+                      </span>
+                    </div>
+                    <div class="categoryContainer">
+                      {post.frontmatter.tags.map((tag: any) => (
+                        <div class="category">#{tag}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="categoryLabel">{post.frontmatter.category}</div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+        <a href="/blog/tags/" class="geLinkButton">⬅ タグ一覧へ</a>
+      </div>
+    </BaseLayout>
+  </body>
+</html>
+
+<style lang="scss">
+  @use "../../../assets/scss/base/setting" as s;
+
+  .bloglistWrap {
+    height: 100vh;
+    padding: {
+      top: 2rem;
+      bottom: 4rem;
+    };
+    background-color: #fbf5ee;
+  }
+</style>
