@@ -144,7 +144,7 @@ $breakpointVar: (
 // margin, paddingの余白調整用
 
 $margin-min: -2;
-$margin-max: 28;
+$margin-max: 48;
 
 @for $i from $margin-min through $margin-max {
   @if ($i != 0) {

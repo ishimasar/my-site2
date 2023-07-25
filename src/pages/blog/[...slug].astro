@@ -63,7 +63,7 @@ const description = remarkPluginFrontmatter.description;
           <a class="category" href="/blog/category/">すべてのカテゴリー</a>
           <a class="tag" href="/blog/tags/">すべてのタグ</a>
         </div>
-        <a href="/blog/" class="geLinkButton">⬅ ブログ記事一覧へ</a>
+        <a href="/blog/" class="geLinkButton">« ブログ記事一覧へ</a>
       </main>
     </BaseLayout>
   </body>
@@ -465,25 +465,31 @@ const description = remarkPluginFrontmatter.description;
     justify-content: center;
     font-size: var(--font-size-d);
     @include s.mq(dt) {
-      gap: 8rem;
+      gap: 5rem;
     }
     @include s.mq(sp-tb) {
-      gap: 4rem;
+      gap: 2rem;
     }
     & .category {
+      padding: .75rem;
+      border: 1px solid var(--accent-color);
       color: var(--accent-color);
-      text-decoration: underline;
-      &:hover,
-      &:focus {
-        text-decoration: none;
+      @include s.mq(dt) {
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
     & .tag {
+      padding: .75rem;
+      border: 1px solid hsla(136, 78%, 22%, 1);
       color: hsla(136, 78%, 22%, 1);
-      text-decoration: underline;
-      &:hover,
-      &:focus {
-        text-decoration: none;
+      @include s.mq(dt) {
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
   }
