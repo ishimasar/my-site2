@@ -33,7 +33,7 @@ const description = remarkPluginFrontmatter.description;
       <main class="artWrapper">
         <article class="artArticle">
           <div class="geFlexbox mb20">
-            <div class="artBacklinkWrap"><a class="link" href="../blog/" title="backlink">　↼　</a></div>
+            <div class="artBacklinkWrap"><a class="link" href="../blog/" title="return link">　↼　</a></div>
             <p class="artMinRead">Read in about {remarkPluginFrontmatter.minutesRead} minutes</p>
           </div>
           <h1>{remarkPluginFrontmatter.title}</h1>
@@ -133,7 +133,7 @@ const description = remarkPluginFrontmatter.description;
     }
   }
   .artBacklinkWrap {
-    width: 45%;
+    width: 50%;
     margin-right: auto;
     > .link {
       padding: {
@@ -145,6 +145,7 @@ const description = remarkPluginFrontmatter.description;
   }
   .artMinRead {
     width: auto;
+    margin-left: auto;
     padding-top: 0 !important;
     text-align: right;
     @include s.mq(dt) {
@@ -272,7 +273,7 @@ const description = remarkPluginFrontmatter.description;
         width: 42rem;
       }
       @include s.mq(sp-tb) {
-        width: 90%;
+        width: 100%;
       }
     }
     & strong {
@@ -396,6 +397,14 @@ const description = remarkPluginFrontmatter.description;
       margin-top: 1rem;
       border: none;
       background-color: hsla(23, 36%, 23%, .8);
+    }
+    & iframe {
+      display: block;
+      width: 60vw;
+      min-width: 300px;
+      max-width: 560px;
+      margin: 1.5rem auto auto;
+      aspect-ratio: 16 / 9;
     }
     [style*="545454"] {
       color: #b5b5b5 !important;

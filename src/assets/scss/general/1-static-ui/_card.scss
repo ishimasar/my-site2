@@ -72,9 +72,15 @@
     top: 50%;
     left: 50%;
     width: 100%;
-    height: auto;
     transform: translate(-50%, -50%);
     transition: all var(--ease-out-cubic) 0.35s 0.01s;
+    object-fit: cover;
+    @include s.mq(dt) {
+      min-height: 180px;
+    }
+    @include s.mq(sp-tb) {
+      min-height: 160px;
+    }
     &:hover,
     &:focus {
       transform: scale(1.03, 1.03) translate(-48%, -48%);
