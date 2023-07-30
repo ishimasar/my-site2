@@ -7,6 +7,7 @@
 .gePagination {
   display: flex;
   justify-content: center;
+  gap: 2.5rem;
   width: 100%;
   @include s.mq(tb-dth) {
     max-width: 50rem;
@@ -29,9 +30,9 @@
     display: block;
     position: relative;
     z-index: 1;
+    font-size: var(--font-size-d);
     @include s.mq(tb-dth) {
       padding: 0.6rem 0.8rem;
-      font-size: var(--font-size-e);
     }
     @include s.mq(sp) {
       padding: 0.3rem 0.4rem;
@@ -42,25 +43,22 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) rotate(22deg);
+      padding: 1.55rem 1.1rem;
+      transform: translate(-50%, -50%) rotate(18deg);
       border-radius: 48.5%;
       z-index: -1;
-      @include s.mq(tb-dth) {
-        width: 2.3rem;
-        height: 3.25rem;
-        padding: 0.6rem 0.8rem;
-      }
-      @include s.mq(sp) {
-        width: 2rem;
-        height: 2.65rem;
-        padding: 0.6rem 0.8rem;
-      }
     }
   }
   & .link {
     color: var(--text-dark-color);
+    text-decoration: underline;
+    @include s.mq(dt) {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
     &::after {
-      border: 1px solid var(--logo-color);
       background-color: var(--white);
     }
   }
@@ -68,6 +66,19 @@
     color: var(--white);
     &::after {
       background-color: var(--logo-color);
+    }
+  }
+  + .startLink {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    text-decoration: underline;
+    @include s.mq(dt) {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
     }
   }
 }

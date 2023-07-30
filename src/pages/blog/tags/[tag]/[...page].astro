@@ -1,13 +1,26 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Head from '../../../components/Head.astro';
-import '../../../assets/scss/global.scss'
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Head from '../../../../components/Head.astro';
+import '../../../../assets/scss/global.scss'
 
-const allPosts = await Astro.glob("../../../content/blog/*.{md,mdx}");
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await Astro.glob("../../../../content/blog/*.{md,mdx}");
+  const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
+  const uniqueTags = [
+    ...new Set(nonDraftPosts.map((post) => post.frontmatter.tags).flat().sort((a, b) => a.localeCompare(b))),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((posts: any) =>
+      posts.frontmatter.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts }
+    };
+  });
+}
 const { tag } = Astro.params;
-const filteredPosts = allPosts.filter((posts: any) =>
-  posts.frontmatter.tags.includes(tag)
-);
+const { posts } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -22,7 +35,7 @@ const filteredPosts = allPosts.filter((posts: any) =>
         </h1>
         <ul class="geFlexbox -card-app">
           {
-            filteredPosts.map((post: any) => (
+            posts.map((post: any) => (
               <li class="geCardBlog">
                 <div class="frame">
                   <div class="imgContainer">
@@ -65,10 +78,11 @@ const filteredPosts = allPosts.filter((posts: any) =>
 </html>
 
 <style lang="scss">
-  @use "../../../assets/scss/base/setting" as s;
+  @use "../../../../assets/scss/base/setting" as s;
 
   .bloglistWrap {
-    height: 100vh;
+    height: 100%;
+    min-height: 100lvh;
     padding: {
       top: 2rem;
       bottom: 4rem;

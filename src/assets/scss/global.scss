@@ -13,6 +13,7 @@ style.scss...style.cssのコンパイル前のひとまとめファイル
 @use "base/print";
 
 @use "general/1-static-ui/card";
+@use "general/1-static-ui/pagination";
 @use "general/1-static-ui/table";
 @use "general/1-static-ui/toc";
 @use "general/4-control/button";

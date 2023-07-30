@@ -159,15 +159,15 @@
     background: linear-gradient(transparent 94%, var(--text-normal-color) 6%);
     font-family: var(--sentence-font);
     font-weight: bold;
-    &:hover,
-    &:focus {
-      color: var(--text-normal-color);
-      background: linear-gradient(transparent 95%, transparent 5%);
-      transform: scale(1, 1) translate(1, 1);
-      transition: all var(--ease-in-cubic) 0.3s;
-    }
     @include s.mq(dt) {
       font-size: var(--font-size-d);
+      &:hover,
+      &:focus {
+        color: var(--text-normal-color);
+        background: linear-gradient(transparent 95%, transparent 5%);
+        transform: scale(1, 1) translate(1, 1);
+        transition: all var(--ease-in-cubic) 0.3s;
+      }
     }
     @include s.mq(sp-tb) {
       font-size: var(--font-size-c);

@@ -7,14 +7,18 @@ const title = 'ブログ記事一覧 | UKIGUMO CAFE - ブログ・ポートフ�
 const description = 'UKIGUMO CAFE(浮雲カフェ)という架空のカフェサイトのブログ記事一覧ページです。本当はWeb/IT制作系の情報発信などを中心とした石井将直(屋号:Cloudy Knot)によるポートフォリオサイトです。';
 const permalink = 'https://nova.drifting-clouds.com/blog/';
 
-const allPosts = await Astro.glob('../../content/blog/*.{md,mdx}');
-const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await Astro.glob('../../content/blog/*.{md,mdx}');
+  const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
 
-const sortedPosts = nonDraftPosts.sort((a, b) => {
-  const aDate = new Date(a.frontmatter.publishDate);
-  const bDate = new Date(b.frontmatter.publishDate);
-  return bDate.getTime() - aDate.getTime();
-});
+  const sortedPosts = nonDraftPosts.sort((a, b) => {
+    const aDate = new Date(a.frontmatter.publishDate);
+    const bDate = new Date(b.frontmatter.publishDate);
+    return bDate.getTime() - aDate.getTime();
+  });
+  return paginate(sortedPosts, { pageSize: 3 });
+}
+const { page } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -29,7 +33,7 @@ const sortedPosts = nonDraftPosts.sort((a, b) => {
         </h1>
         <ul class="geFlexbox -card-app">
           {
-            sortedPosts.map((blog) => (
+            page.data.map((blog) => (
               <li class="geCardBlog">
                 <div class="frame">
                   <div class="imgContainer">
@@ -65,6 +69,12 @@ const sortedPosts = nonDraftPosts.sort((a, b) => {
             ))
           }
         </ul>
+        <div class="gePagination">
+          {page.url.prev ? <a class="link" href={page.url.prev}>{page.currentPage - 1}</a> : false}
+          <span class="current">{page.currentPage}</span>
+          {page.url.next ? <a class="link" href={page.url.next}>{page.currentPage + 1}</a> : false}
+        </div>
+        {page.currentPage > 2 ? <a class="startLink mt32" href="/blog/">記事一覧1へ</a> : false}
         <div class="filterContainer mt48">
           <a class="category" href="/blog/category/">すべてのカテゴリー</a>
           <a class="tag" href="/blog/tags/">すべてのタグ</a>
@@ -80,7 +90,7 @@ const sortedPosts = nonDraftPosts.sort((a, b) => {
 
   .bloglistWrap {
     height: 100%;
-    height: 100lvh;
+    min-height: 100lvh;
     padding: {
       top: 2rem;
       bottom: 4rem;
@@ -110,6 +120,9 @@ const sortedPosts = nonDraftPosts.sort((a, b) => {
           text-decoration: underline;
         }
       }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
+      }
     }
     & .tag {
       padding: .75rem;
@@ -120,6 +133,9 @@ const sortedPosts = nonDraftPosts.sort((a, b) => {
         &:focus {
           text-decoration: underline;
         }
+      }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
       }
     }
   }

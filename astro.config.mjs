@@ -40,6 +40,6 @@ export default defineConfig({
   server: {
     port: 8080
   },
-  output: 'server',
-  adapter: vercel()
+  // output: 'server',
+  // adapter: vercel()
 });

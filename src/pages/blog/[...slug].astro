@@ -489,6 +489,9 @@ const description = remarkPluginFrontmatter.description;
           text-decoration: underline;
         }
       }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
+      }
     }
     & .tag {
       padding: .75rem;
@@ -499,6 +502,9 @@ const description = remarkPluginFrontmatter.description;
         &:focus {
           text-decoration: underline;
         }
+      }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
       }
     }
   }
