@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+layout: ../../layouts/Layout.astro
 slug: astro-markdown-blog
 title: 軽量Webフレームワーク・AstroでMarkdown記述式のブログサイトをリニューアル
 author: Cloudy knot
@@ -18,7 +18,7 @@ draft: false
 やっとたどり着いた自分にとって理想のブログ執筆環境。Markdown<sup>1</sup>でサクサク書ける(厳密にはMarkdown + JSXな[MDX](https://mdxjs.com/)を採用)、オールインワン軽量Webフレームワーク・[Astro](https://docs.astro.build/ja/getting-started/)でブログサイトを構築した話。
 
 > 1: Markdown(マークダウン)は、文書を記述するための軽量マークアップ言語のひとつである。 本来はプレーンテキスト形式で手軽に書いた文書からHTMLを生成するために開発されたものである。
-> 
+>
 > 引用: [Markdown - Wikipedia](https://ja.wikipedia.org/wiki/Markdown)
 
 始め方は簡単。CLIを使用して指定ディレクトリ上で以下のシェルコマンドを入力。
@@ -35,7 +35,7 @@ React、Svelte、Vue、Litなど多くのJavaScriptフレームワークをラ�
 
 Markdownのシンプルな記法だけではまだ正直ブログとして表現面で心許ない。セマンティクスにおいてもHTMLには到底及ばない。だが、一応表現のバリエーションとして最低限+くらいのレベルはクリア・確保できていると思う(ことにした)。
 
-これは`**(任意の文字)**`と記述することで、**強調用(strong要素)のスタイル**となる。  
+これは`**(任意の文字)**`と記述することで、**強調用(strong要素)のスタイル**となる。
 そしてこちら`*(任意の文字)*`と記述し*準強調用(em要素)のスタイル*として使用する。
 
 各種絵文字(emoji)も使用可能 ☞ 😅✌️。

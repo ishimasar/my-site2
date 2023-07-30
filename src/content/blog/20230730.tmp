@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+layout: ../../layouts/Layout.astro
 slug: start-linguistics
 title: 言語学ことはじめ。世界に言葉はいくつあるのか？ルーツは何なのか？
 author: Cloudy knot

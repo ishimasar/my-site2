@@ -1,7 +1,7 @@
 ---
 import { getEntryBySlug, CollectionEntry, getCollection } from 'astro:content';
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 import Head from '../../components/Head.astro';
 import '../../assets/scss/global.scss'
 
@@ -20,16 +20,20 @@ export async function getStaticPaths() {
 const { slug } = Astro.params as { slug: string };
 const entry = (await getEntryBySlug('blog', slug)) as CollectionEntry<'blog'>;
 const { Content, remarkPluginFrontmatter } = await entry.render();
-const title = remarkPluginFrontmatter.title;
+
+const title = remarkPluginFrontmatter.title + ' | UKIGUMO CAFE - ブログ・ポートフォリオサイト';
 const description = remarkPluginFrontmatter.description;
+const permalink = 'https://nova.drifting-clouds.com/blog/' + remarkPluginFrontmatter.slug;
+const ogtype = 'article';
+const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thumb;
 ---
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <Head {title} {description} />
+  <head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# article:http://ogp.me/ns/article#">
+    <Head {title} {description} {permalink} {ogtype} {ogimage} />
   </head>
   <body>
-    <BaseLayout minutesRead={remarkPluginFrontmatter["minutesRead"]}>
+    <Layout minutesRead={remarkPluginFrontmatter["minutesRead"]}>
       <main class="artWrapper">
         <article class="artArticle">
           <div class="geFlexbox mb20">
@@ -65,7 +69,7 @@ const description = remarkPluginFrontmatter.description;
         </div>
         <a href="/blog/" class="geLinkButton">« ブログ記事一覧へ</a>
       </main>
-    </BaseLayout>
+    </Layout>
   </body>
 </html>
 
@@ -144,7 +148,7 @@ const description = remarkPluginFrontmatter.description;
     }
   }
   .artMinRead {
-    width: auto;
+    width: 55%;
     margin-left: auto;
     padding-top: 0 !important;
     text-align: right;

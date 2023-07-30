@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+layout: ../../layouts/Layout.astro
 slug: sleeping-disorder
 title: 良質な睡眠を得るために。睡眠障害解消のためにしていること
 author: Cloudy knot

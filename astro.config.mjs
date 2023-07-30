@@ -7,11 +7,13 @@ import remarkToc from 'remark-toc';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-
 import vercel from "@astrojs/vercel/serverless";
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://nova.drifting-clouds.com/blog/',
   vite: {
     ssr: {
       noExternal: ['assets']
@@ -36,7 +38,7 @@ export default defineConfig({
       behavior: 'append'
     }], rehypeHeadingIds],
     gfm: true
-  })],
+  }), sitemap()],
   server: {
     port: 8080
   },
