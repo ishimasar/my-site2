@@ -10,6 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import vercel from "@astrojs/vercel/serverless";
 
 import sitemap from "@astrojs/sitemap";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,19 +27,28 @@ export default defineConfig({
       }
     }
   },
-  integrations: [mdx({
-    syntaxHighlight: 'shiki',
-    shikiConfig: {
-      theme: 'material-theme-darker'
-    },
-    remarkPlugins: [remarkMath, [remarkToc, {
-      heading: "Contents"
-    }], remarkReadingTime],
-    rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, {
-      behavior: 'append'
-    }], rehypeHeadingIds],
-    gfm: true
-  }), sitemap()],
+  integrations:
+    [
+      mdx({
+        syntaxHighlight: 'shiki',
+        shikiConfig: {
+          theme: 'material-theme-darker'
+        },
+        remarkPlugins: [remarkMath, [remarkToc, {
+          heading: "Contents"
+        }], remarkReadingTime],
+        rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, {
+          behavior: 'append'
+        }], rehypeHeadingIds],
+        gfm: true
+      }),
+      sitemap(),
+      partytown({
+        config: {
+          forward: ["dataLayer.push"],
+        },
+      }),
+    ],
   server: {
     port: 8080
   },
