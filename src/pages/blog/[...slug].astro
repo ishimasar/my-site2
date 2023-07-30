@@ -11,11 +11,26 @@ type Props = {
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
-  return blogEntries.map((entry) => ({
+  const numberOfPosts = blogEntries.length;
+  const nonDraftPosts = blogEntries.filter((blog) => !blog.draft);
+
+  return nonDraftPosts.map((entry, i) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: {
+      entry,
+      prevPost:
+        i + 1 === numberOfPosts
+          ? ''
+          : nonDraftPosts[i + 1],
+      nextPost:
+        i === 0
+          ? ''
+          : nonDraftPosts[i - 1]
+    },
   }));
 }
+
+const { prevPost, nextPost } = Astro.props;
 
 const { slug } = Astro.params as { slug: string };
 const entry = (await getEntryBySlug('blog', slug)) as CollectionEntry<'blog'>;
@@ -63,7 +78,11 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
             </div>
           </div>
         </article>
-        <div class="filterContainer mt48">
+        <div class="nearContContainer">
+          {nextPost && <a class="link -prev" href={`/blog/${nextPost.slug}`}>&lt; 前の記事<br>{nextPost.data.title}</a>}
+          {prevPost && <a class="link -next" href={`/blog/${prevPost.slug}`}>次の記事 &gt;<br>{prevPost.data.title}</a>}
+        </div>
+        <div class="filterContainer">
           <a class="category" href="/blog/category/">すべてのカテゴリー</a>
           <a class="tag" href="/blog/tags/">すべてのタグ</a>
         </div>
@@ -194,12 +213,12 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       max-width: 52rem;
       padding: 2rem 1rem;
     }
-    @include s.mq(tb) {
-      margin-bottom: 3rem;
+    @include s.mq(tb-dth) {
+      margin-bottom: 2rem;
     }
     @include s.mq(sp) {
       max-width: 96vw;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
     &:not(:first-of-type) {
       padding-top: 2rem;
@@ -472,16 +491,54 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       }
     }
   }
-
+  .nearContContainer {
+    width: 80vw;
+    max-width: 60rem;
+    display: flex;
+    margin: auto;
+    & .link {
+      width: 45%;
+      height: 3.2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-decoration: underline;
+      &.-prev {
+        margin-right: auto;
+      }
+      &.-next {
+        margin-left: auto;
+        text-align: right;
+      }
+      @include s.mq(tb-dth) {
+        font-size: var(--font-size-d);
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
+      }
+    }
+    @include s.mq(tb-dth) {
+      justify-content: space-around;
+    }
+    @include s.mq(sp) {
+      justify-content: space-between;
+    }
+  }
   .filterContainer {
     display: flex;
     justify-content: center;
     font-size: var(--font-size-d);
     @include s.mq(dt) {
       gap: 5rem;
+      @include s.hrMarginTop(3rem);
     }
     @include s.mq(sp-tb) {
       gap: 2rem;
+      @include s.hrMarginTop(1.5rem);
     }
     & .category {
       padding: .75rem;
