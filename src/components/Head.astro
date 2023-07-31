@@ -8,19 +8,19 @@ export interface Props {
 }
 const { title, description, permalink, ogtype, ogimage } = Astro.props;
 ---
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no, email=no, address=no">
 
 <title>{title}</title>
-<meta name="description" content={description} />
+<meta name="description" content={description}>
 
-<meta property="og:site_name" content="UKIGUMO CAFE / 浮雲カフェ" />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:type" content={ogtype} />
-<meta property="og:url" content={permalink} />
-<meta property="og:image" content={ogimage} />
+<meta property="og:site_name" content="UKIGUMO CAFE / 浮雲カフェ">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:type" content={ogtype}>
+<meta property="og:url" content={permalink}>
+<meta property="og:image" content={ogimage}>
 
 <!-- <link rel="preconnect" href="https://www.googletagmanager.com"> -->
 <link rel="preconnect" href="https://www.google-analytics.com">
