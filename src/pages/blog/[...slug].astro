@@ -266,6 +266,15 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     > h2:not([id=contents]) {
       @extend %geHeading2Article;
     }
+    & h3 {
+      display: table;
+      position: relative;
+      background: linear-gradient(transparent 89%, var(--text-highlight-color) 87%);
+      @include s.hrMarginTop(2rem);
+      font-style: normal;
+      font-weight: bold;
+      font-size: var(--font-size-d);
+    }
     > p {
       margin-top: 1.5rem;
       font-family: var(--sentence-font);
