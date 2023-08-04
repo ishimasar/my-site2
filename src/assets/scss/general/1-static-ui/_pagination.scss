@@ -65,7 +65,8 @@
   & .current {
     color: var(--white);
     &::after {
-      background-color: var(--logo-color);
+      background-color: var(--text-normal-color);
+      opacity: .9;
     }
   }
   + .startLink {
