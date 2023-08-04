@@ -273,7 +273,12 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       @include s.hrMarginTop(2rem);
       font-style: normal;
       font-weight: bold;
-      font-size: var(--font-size-d);
+      @include s.mq(dt) {
+        font-size: var(--font-size-d);
+      }
+      @include s.mq(sp-tb) {
+        font-size: var(--font-size-c);
+      }
     }
     > p {
       margin-top: 1.5rem;
