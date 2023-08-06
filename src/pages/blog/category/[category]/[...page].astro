@@ -6,16 +6,22 @@ import '../../../../assets/scss/global.scss'
 export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob("../../../../content/blog/*.{md,mdx}");
   const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
-  const uniqueTags = [
-    ...new Set(nonDraftPosts.map((post) => post.frontmatter.category).flat().sort((a, b) => a.localeCompare(b))),
+
+  const uniqueCates = [
+    ...new Set(nonDraftPosts.map((post) => post.frontmatter.category).flat()),
   ];
-  return uniqueTags.map((category) => {
+  return uniqueCates.map((category) => {
     const filteredPosts = allPosts.filter((posts: any) =>
       posts.frontmatter.category.includes(category)
     );
+    const sortedPosts = filteredPosts.sort((a, b) => {
+      const aDate = new Date(a.frontmatter.publishDate);
+      const bDate = new Date(b.frontmatter.publishDate);
+      return bDate.getTime() - aDate.getTime();
+    });
     return {
       params: { category },
-      props: { posts: filteredPosts }
+      props: { posts: sortedPosts }
     };
   });
 }
