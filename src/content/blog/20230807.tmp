@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/Layout.astro
 slug: start-linguistics
-title: 言語学ことはじめ。世界に言葉は一体いくつある？おもな言語は？
+title: 私は言葉・言語とともに生き、それを扱う仕事をしている
 author: Cloudy knot
-publishDate: "2023-08-10"
+publishDate: "2023-08-07"
 updateDate: "-"
 description: 私たち人類は当たり前のように日常的に言葉を発し、言葉でものを考え、相互にコミュニケーションをとっている。機械・コンピュータに対してもプログラミング言語を用いる。
 thumb: /image/blog/thumb4.webp
