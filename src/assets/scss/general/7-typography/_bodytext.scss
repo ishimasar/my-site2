@@ -75,3 +75,25 @@
     line-height: 2;
   }
 }
+
+.geLeadText {
+  width: 90vw;
+  margin: auto;
+  text-align: center;
+  line-height: 1.7;
+  font-family: var(--sentence-font);
+  @include s.mq(dt) {
+    font-size: var(--font-size-d);
+  }
+  & .link {
+    display: inline-block;
+    width: auto;
+    text-decoration: underline;
+    color: var(--accent-color);
+    @include s.mq(dt) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

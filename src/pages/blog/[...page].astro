@@ -33,7 +33,11 @@ const ogimage = 'https://drifting-clouds.com/ogp.png';
         <h1 class="geHeading1Subpage">
           <span class="ja">ブログ記事一覧</span>
         </h1>
-        <ul class="geFlexbox -card-app">
+        <p class="geLeadText">
+          多岐の物事に興味を持つ雑多人間が、そのときどきで取り留めなく文を綴(つづ)ります。<br>
+          ITテクノロジー/Web制作、旅、学問、思考/レビュー、創作、生活・日々の暮らしなどがおもなテーマ。
+        </p>
+        <ul class="geFlexbox -card-app mt32">
           {
             page.data.map((blog: any) => (
               <li class="geCardBlog">
