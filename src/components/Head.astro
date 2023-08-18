@@ -22,19 +22,15 @@ const { title, description, permalink, ogtype, ogimage } = Astro.props;
 <meta property="og:url" content={permalink}>
 <meta property="og:image" content={ogimage}>
 
-<!-- <link rel="preconnect" href="https://www.googletagmanager.com"> -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
 
-<script
-  type="text/partytown"
-  src="https://www.googletagmanager.com/gtag/js?id=G-R0V9JF5CXD"
-  async
-  >
-</script>
+<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-R0V9JF5CXD" async></script>
 <script type="text/partytown" async>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
