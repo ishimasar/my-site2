@@ -1,16 +1,17 @@
 import { defineConfig } from 'astro/config';
-import { remarkReadingTime } from "./src/lib/remark-reading-time";
+import { remarkReadingTime } from './src/lib/remark-reading-time';
 import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import remarkToc from 'remark-toc';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import vercel from "@astrojs/vercel/serverless";
+import vercel from '@astrojs/vercel/serverless';
 
-import sitemap from "@astrojs/sitemap";
-import partytown from "@astrojs/partytown";
+import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,7 +23,7 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          // additionalData: `@use "src/assets/scss/global.scss";`
+          // additionalData: `@use 'src/assets/scss/global.scss';`
         }
       }
     }
@@ -35,7 +36,7 @@ export default defineConfig({
           theme: 'material-theme-darker'
         },
         remarkPlugins: [remarkMath, [remarkToc, {
-          heading: "Contents"
+          heading: 'Contents'
         }], remarkReadingTime],
         rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, {
           behavior: 'append'
@@ -45,9 +46,10 @@ export default defineConfig({
       sitemap(),
       partytown({
         config: {
-          forward: ["dataLayer.push"],
+          forward: ['dataLayer.push'],
         },
       }),
+      react()
     ],
   server: {
     port: 8080
