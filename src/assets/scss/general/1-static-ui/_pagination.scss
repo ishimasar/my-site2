@@ -7,11 +7,12 @@
 .gePagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2.5rem;
   width: 100%;
   @include s.mq(tb-dth) {
     max-width: 50rem;
-    margin: 2.5rem auto auto;
+    margin: 1.5rem auto auto;
   }
   @include s.mq(sp) {
     max-width: 80vw;
