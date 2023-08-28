@@ -277,7 +277,7 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         font-size: var(--font-size-d);
       }
       @include s.mq(sp-tb) {
-        font-size: var(--font-size-c);
+        font-size: calc(var(--font-size-c) + .1rem);
       }
     }
     > p {
@@ -466,6 +466,21 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     }
     .recharts-wrapper {
       margin: 2rem auto auto;
+    }
+    & table {
+      @include s.mq(tb-dth) {
+        font-size: calc(var(--font-size-c) + .1rem);
+      }
+      @include s.mq(sp) {
+        font-size: var(--font-size-c);
+      }
+      + p {
+        @include s.hrMarginTop(.25rem);
+        text-align: right;
+      }
+      & * {
+        vertical-align: middle;
+      }
     }
   }
   .artTimeContainer {
