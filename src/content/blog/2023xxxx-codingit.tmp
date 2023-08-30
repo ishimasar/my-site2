@@ -3,13 +3,13 @@ layout: ../../layouts/Layout.astro
 slug: vscode-snippet-settings
 title: コーディングエディタ・VS Codeで自分用の独自スニペットをサクッと設定
 author: Cloudy knot
-publishDate: "2023-xx-xx"
+publishDate: "2023-09-02"
 updateDate: "-"
 description: コーディングエディタ・VS Codeで自分用の独自スニペットをサクッと設定
 thumb: /image/blog/thumb5.webp
 category: Coding-IT
 tags: [vscode, snippet]
-draft: true
+draft: false
 ---
 ## Contents
 

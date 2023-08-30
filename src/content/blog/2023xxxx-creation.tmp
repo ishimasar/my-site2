@@ -3,13 +3,13 @@ layout: ../../layouts/Layout.astro
 slug: diy-hydroponics-kit
 title: 水耕栽培キットを自作してみよう
 author: Cloudy knot
-publishDate: "2023-xx-xx"
+publishDate: "2023-09-10"
 updateDate: "-"
 description: 水耕栽培キットを自作してみよう。
 thumb: https://placehold.jp/30/dd6699/ffffff/1024x576.png?text=placeholder+image
 category: Creation
 tags: [IoT, product]
-draft: true
+draft: false
 ---
 ## Contents
 

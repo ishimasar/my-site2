@@ -3,13 +3,13 @@ layout: ../../layouts/Layout.astro
 slug: sleeping-disorder
 title: 良質な睡眠を得るために。睡眠障害解消のためにしていること
 author: Cloudy knot
-publishDate: "2023-xx-xx"
+publishDate: "2023-09-10"
 updateDate: "-"
 description: 良質な睡眠を得るために。睡眠障害解消のためにしていること。
 thumb: https://placehold.jp/30/dd6699/ffffff/1024x576.png?text=placeholder+image
 category: Life
 tags: [sleep]
-draft: true
+draft: false
 ---
 ## Contents
 
