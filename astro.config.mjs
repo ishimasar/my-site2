@@ -31,16 +31,24 @@ export default defineConfig({
   integrations:
     [
       mdx({
-        syntaxHighlight: 'shiki',
-        shikiConfig: {
-          theme: 'material-theme-darker'
-        },
-        remarkPlugins: [remarkMath, [remarkToc, {
-          heading: 'Contents'
-        }], remarkReadingTime],
-        rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, {
-          behavior: 'append'
-        }], rehypeHeadingIds],
+        syntaxHighlight: 'prism',
+        // syntaxHighlight: 'shiki',
+        // shikiConfig: {
+        //   theme: 'material-theme-darker'
+        // },
+        remarkPlugins: [
+          remarkMath,
+          [remarkToc, {
+            heading: 'Contents'
+          }],
+          remarkReadingTime],
+        rehypePlugins: [
+          rehypeKatex,
+          rehypeSlug,
+          [rehypeAutolinkHeadings, {
+            behavior: 'append'
+          }],
+          rehypeHeadingIds],
         gfm: true
       }),
       sitemap(),
@@ -54,6 +62,7 @@ export default defineConfig({
   server: {
     port: 8080
   },
-  // output: 'hybrid',
+  // output: 'static',
+  output: 'hybrid',
   // adapter: vercel()
 });
