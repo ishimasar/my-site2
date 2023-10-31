@@ -10,7 +10,13 @@
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky install",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "webserver": "http-server ./dist -o -p 8888",
+    "lint:html": "htmlhint",
+    "lint:style": "stylelint",
+    "fix:style": "stylelint --fix",
+    "lint:es": "eslint",
+    "fix:es": "eslint --fix"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^2.2.1",
@@ -20,6 +26,8 @@
     "@astrojs/sitemap": "^2.0.1",
     "@astrojs/vercel": "^3.7.2",
     "astro": "^2.8.0",
+    "eslint": "^8.52.0",
+    "htmlhint": "^1.1.4",
     "mdast-util-to-string": "^4.0.0",
     "mdx": "^0.3.1",
     "prism-themes": "^1.9.0",
@@ -31,7 +39,13 @@
     "rehype-katex": "^6.0.3",
     "rehype-slug": "^5.1.0",
     "remark-math": "^5.1.1",
-    "remark-toc": "^8.0.1"
+    "remark-toc": "^8.0.1",
+    "stylelint": "^15.11.0",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-recommended-scss": "^13.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-scss": "^5.3.0"
   },
   "main": "index.js",
   "repository": "https://github.com/ishimasar/astro.git",
