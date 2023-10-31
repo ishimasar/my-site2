@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^2.2.1",
@@ -36,9 +38,12 @@
   "author": "masa_ishii <ishimasar1106@gmail.com>",
   "license": "MIT",
   "volta": {
-    "node": "16.13.0"
+    "node": "18.12.0"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "pinst": "^3.0.0",
     "sass": "^1.63.6"
   }
 }
