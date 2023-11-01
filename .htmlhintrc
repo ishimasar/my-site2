@@ -40,7 +40,7 @@
   "inline-script-disabled": false,         // インラインスクリプト使用禁止
   "inline-style-disabled": false,          // インラインスタイル使用禁止
   // Formatting
-  "space-tab-mixed-disabled": "space"      // スペースとタブの行頭混在 -> タブ禁止
+  // "space-tab-mixed-disabled": "space"      // スペースとタブの行頭混在 -> タブ禁止
 
   // ※更新で条件や記法が変わっていることが観測されたので要注意
 }
