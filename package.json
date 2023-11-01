@@ -15,12 +15,9 @@
     "astro": "astro",
     "lint:html": "htmlhint",
     "lint:style": "stylelint",
-    "fix:style": "stylelint --fix",
     "lint:es": "eslint",
-    "fix:es": "eslint --fix",
     "prepare": "husky install",
-    "postinstall": "husky install",
-    "webserver": "http-server ./dist -o -p 8888"
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^2.2.1",
@@ -58,6 +55,7 @@
     "stylelint": "^15.11.0",
     "stylelint-config-recess-order": "^4.3.0",
     "stylelint-config-recommended-scss": "^13.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-no-unsupported-browser-features": "^7.0.0",

@@ -1,15 +1,19 @@
 module.exports = {
   plugins: ['stylelint-order', 'stylelint-scss'],
   extends: [
-    // 'stylelint-config-standard',
+    'stylelint-config-standard',
     'stylelint-config-recommended-scss',
     'stylelint-config-recess-order',
-    // 'stylelint-config-prettier',
+    'stylelint-config-html/astro'
+    // 'stylelint-config-prettier'
   ],
+  ignoreFiles: [
+    "src/**/*.astro"
+	],
   rules: {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
-    indentation: null,
+    // indentation: null,
     'color-hex-case': 'lower', // hex値は小文字指定(大文字を禁止)
     'color-hex-length': 'short', // hex値は短い表記(冗長な表記は禁止)
     'color-named': 'never', // 名前付きカラー指定を禁止
