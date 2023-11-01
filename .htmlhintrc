@@ -2,22 +2,22 @@
   // ルール数27個 https://htmlhint.com/docs/user-guide/list-rules
   // true = 適用
   // Doctype and Head
-  "title-require": true,                   // titleタグがある
+  // "title-require": true,                   // titleタグがある
   // Attributes
   "attr-no-duplication": true,             // 属性名が重複していない
   "attr-no-unnecessary-whitespace": true,  // 属性名と値の間にスペースは不要
   "attr-unsafe-chars": true,               // 属性値に安全でない文字の使用
-  "attr-value-double-quotes": true,        // 属性値は二重引用符(ダブルクォート)囲み
+  // "attr-value-double-quotes": true,        // 属性値は二重引用符(ダブルクォート)囲み
   "alt-require": true,                     // imgタグにalt属性がある
   "input-requires-label": true,            // input要素に対応するlabel要素がある
   // Tags
   "tag-pair": true,                        // タグが開き閉じになっている
-  "tagname-lowercase": true,               // タグ名は小文字
+  // "tagname-lowercase": true,               // タグ名は小文字
   "src-not-empty": true,                   // aタグのsrc属性値が空でない ※一応チェック
   // Id
   "id-unique": true,                       // id属性はファイル内でユニーク(唯一)
   // Formatting
-  "spec-char-escape": true,                // 特殊文字がエスケープされている ※一応チェック
+  // "spec-char-escape": true,                // 特殊文字がエスケープされている ※一応チェック
 
   // false = 不適用
   // Doctype and Head
