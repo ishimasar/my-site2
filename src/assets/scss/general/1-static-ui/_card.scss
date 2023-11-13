@@ -38,13 +38,13 @@
     display: block;
     position: relative;
     width: 100%;
-    font-family: var(--sentence-font);
     border: 0.5px solid hsla(0, 0%, 90%, 1);
+    font-family: var(--sentence-font);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
     border-radius: 0.25rem;
     box-shadow: var(--textbox-shadow);
     transition: all var(--ease-out-cubic) 0.3s;
-    -webkit-font-smoothing: antialiased;
-    overflow: hidden;
     @include s.mq(dt) {
       // &:hover,
       // &:focus {
@@ -73,8 +73,8 @@
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
-    transition: all var(--ease-out-cubic) 0.35s 0.01s;
     object-fit: cover;
+    transition: all var(--ease-out-cubic) 0.35s 0.01s;
     @include s.mq(dt) {
       min-height: 180px;
     }
@@ -117,8 +117,8 @@
         }
       }
       @include s.mq(sp) {
-        line-height: 1.4;
         margin-top: 0.3rem;
+        line-height: 1.4;
       }
       > .date {
         display: inline-block;
@@ -141,8 +141,8 @@
         }
       }
       @include s.mq(sp) {
-        line-height: 1.4;
         margin-top: 0.1rem;
+        line-height: 1.4;
       }
       > .tag {
         display: inline-block;
@@ -163,8 +163,8 @@
       font-size: var(--font-size-d);
       &:hover,
       &:focus {
-        color: var(--text-normal-color);
         background: linear-gradient(transparent 95%, transparent 5%);
+        color: var(--text-normal-color);
         transform: scale(1, 1) translate(1, 1);
         transition: all var(--ease-in-cubic) 0.3s;
       }
@@ -193,7 +193,7 @@
 @media all and (-ms-high-contrast: none) {
   *::-ms-backdrop,
   .geCardBlog {
-    transform: none;
     opacity: 1;
+    transform: none;
   }
 }

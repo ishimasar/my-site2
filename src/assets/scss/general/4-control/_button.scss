@@ -13,11 +13,11 @@
   background-size: 200% 200%;
   line-height: 1;
   font-family: var(--sentence-font);
+  -webkit-font-smoothing: antialiased;
   color: var(--white);
   border-radius: 2.5rem;
-  transition: all var(--ease-out-cubic) 0.3s;
   box-shadow: var(--button-shadow);
-  -webkit-font-smoothing: antialiased;
+  transition: all var(--ease-out-cubic) 0.3s;
   @include s.mq(dt) {
     margin: 3.8rem auto auto;
     padding: 1.3rem 2.6rem;
@@ -26,11 +26,11 @@
     &:focus {
       background-position: 0 0;
       font-weight: bold;
+      -webkit-font-smoothing: antialiased;
       color: var(--white);
       transform: translate(-0.14rem, -0.12rem);
-      transition: all var(--ease-in-cubic) 0.25s;
       box-shadow: var(--button-hover-shadow);
-      -webkit-font-smoothing: antialiased;
+      transition: all var(--ease-in-cubic) 0.25s;
     }
   }
   @include s.mq(sp-tb) {
@@ -51,10 +51,10 @@
   @include s.mq(dt) {
     &:hover,
     &:focus {
-      box-shadow: var(--tag-hover-shadow);
-      transform: translate(-0.12rem, -0.1rem);
-      transition: transform var(--ease-in-cubic) 0.25s;
       -webkit-font-smoothing: antialiased;
+      transform: translate(-0.12rem, -0.1rem);
+      box-shadow: var(--tag-hover-shadow);
+      transition: transform var(--ease-in-cubic) 0.25s;
     }
   }
   @include s.mq(tb-dth) {
@@ -83,11 +83,28 @@
   background-size: 200% 200%;
   line-height: 1;
   font-family: var(--sentence-font);
+  -webkit-font-smoothing: antialiased;
   color: var(--white);
   border-radius: 5px;
-  transition: transform var(--ease-out-cubic) 0.3s;
   box-shadow: 3px 3px 3px 1px hsla(0, 0%, 0%, .25);
-  -webkit-font-smoothing: antialiased;
+  transition: transform var(--ease-out-cubic) 0.3s;
+  @include s.mq(dt) {
+    margin: 2rem auto auto;
+    padding: 1.2rem 5rem;
+    font-size: var(--font-size-d);
+    &:hover,
+    &:focus {
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+      transform: translate(-0.14rem, -0.12rem);
+      box-shadow: var(--button-hover-shadow);
+      transition: all var(--ease-in-cubic) 0.25s;
+    }
+  }
+  @include s.mq(sp-tb) {
+    margin: 1.7rem auto auto;
+    padding: 1rem 3.5rem;
+  }
   &[disabled] {
     background-color: var(--black);
     background-image: none;
@@ -97,33 +114,16 @@
     &:focus {
       font-weight: inherit;
       transform: none;
-      transition: none;
       box-shadow: inherit;
+      transition: none;
     }
     &::after {
       content: " (停止中)";
     }
   }
-  @include s.mq(dt) {
-    margin: 2rem auto auto;
-    padding: 1.2rem 5rem;
-    font-size: var(--font-size-d);
-    &:hover,
-    &:focus {
-      font-weight: bold;
-      transform: translate(-0.14rem, -0.12rem);
-      transition: all var(--ease-in-cubic) 0.25s;
-      box-shadow: var(--button-hover-shadow);
-      -webkit-font-smoothing: antialiased;
-    }
-  }
-  @include s.mq(sp-tb) {
-    margin: 1.7rem auto auto;
-    padding: 1rem 3.5rem;
-  }
   &:active {
     transform: translate(-0.08rem, 0.06rem);
-    transition: all var(--ease-in-quad) 0.1s 0;
     box-shadow: 2px 2px 2px 1px hsla(0, 0%, 0%, .25);
+    transition: all var(--ease-in-quad) 0.1s 0;
   }
 }

@@ -6,9 +6,9 @@
 
 .geFlexbox {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   align-items: stretch;
+  justify-content: space-between;
   margin: auto;
   &::after,
   &::before {

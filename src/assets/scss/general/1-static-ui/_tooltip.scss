@@ -22,44 +22,44 @@
       content: "";
       width: 0;
       height: 0;
-      border-width: 0.375rem;
       border-style: solid;
+      border-width: 0.375rem;
     }
     &::after {
       content: attr(aria-label);
       height: 1.5625rem;
-      line-height: 1.5625rem;
       padding: 0 0.625rem;
       background: var(--white);
       text-align: center;
-      white-space: nowrap;
-      font-size: 0.9rem;
+      line-height: 1.5625rem;
       font-family: var(--sentence-font);
       font-size: 0.9rem;
+      font-size: 0.9rem;
+      white-space: nowrap;
       color: var(--text-dark-color);
       border-radius: 0.3125rem;
     }
     &::before,
     &::after {
       position: absolute;
-      left: -2000px;
       bottom: 93%;
+      left: -2000px;
+      z-index: 6;
       margin-bottom: 0.75rem;
       opacity: 0;
-      z-index: 6;
       transition: opacity 0.25s ease-in-out, bottom 0.25s ease-in-out;
     }
     &::before {
-      border-color: var(--white);
-      margin-bottom: 0.0625rem;
       top: -10px;
       width: 0;
       height: 0;
-      border-style: solid;
-      border-bottom: 0px transparent solid;
-      border-right: 8px transparent solid;
-      border-left: 8px transparent solid;
+      margin-bottom: 0.0625rem;
       border-top: 8px var(--white) solid;
+      border-right: 8px transparent solid;
+      border-bottom: 0 transparent solid;
+      border-left: 8px transparent solid;
+      border-color: var(--white);
+      border-style: solid;
     }
     &:hover::after,
     &:focus::after,

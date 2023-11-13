@@ -1,9 +1,9 @@
 {
   "name": "@example/basics",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
   "main": "index.js",
+  "type": "module",
   "repository": "https://github.com/ishimasar/astro.git",
   "author": "masa_ishii <ishimasar1106@gmail.com>",
   "license": "MIT",
@@ -13,8 +13,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint:html": "htmlhint",
-    "lint:style": "stylelint",
+    "lint:html": "htmlhint --config src/**/*.astro",
+    "lint:css": "stylelint **/*.{css,scss}",
     "lint:es": "eslint",
     "prepare": "husky install",
     "postinstall": "husky install"
@@ -56,11 +56,11 @@
     "stylelint-config-recess-order": "^4.3.0",
     "stylelint-config-recommended-scss": "^13.0.0",
     "stylelint-config-standard": "^34.0.0",
-    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-config-standard-scss": "^11.1.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
     "stylelint-no-unsupported-browser-features": "^7.0.0",
     "stylelint-order": "^6.0.3",
-    "stylelint-scss": "^5.3.0"
+    "stylelint-scss": "^5.3.1"
   },
   "volta": {
     "node": "18.12.0"

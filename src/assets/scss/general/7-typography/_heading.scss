@@ -8,8 +8,6 @@
 .geHeading1Subpage {
   width: fit-content;
   margin: auto;
-  text-align: center;
-  letter-spacing: 0.08rem;
   background: linear-gradient(
       355.38deg,
       hsla(36, 94%, 34%, 1) -33.88%,
@@ -19,9 +17,11 @@
     linear-gradient(143.97deg, hsla(23, 69%, 11%, 1) 8.47%, hsla(35, 75%, 46%, .05) 65.63%),
     radial-gradient(100px at 82% 10%, hsla(23, 69%, 11%, 1) 55%, hsla(31, 100%, 81%, .1) 100%),
     linear-gradient(0deg, hsla(36, 94%, 34%, 1), hsla(36, 94%, 34%, 1)), hsla(38, 96%, 20%, 1);
-  background-clip: text;
-  -webkit-background-clip: text;
+  text-align: center;
+  letter-spacing: 0.08rem;
   color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
   @include s.mq(dt) {
     margin-bottom: 3rem;
   }
@@ -40,11 +40,11 @@
     }
   }
   > .en {
+    @include s.engFont;
     display: block;
     margin: 0.8rem auto;
-    @include s.engFont;
-    font-weight: bold;
     text-transform: uppercase;
+    font-weight: bold;
     @include s.mq(dt) {
       font-size: var(--font-size-d);
     }

@@ -7,12 +7,12 @@
 // コンテンツを視覚的に隠し、スクリーンリーダーでは読ませるためのもの
 .geVisuallyHidden {
   position: absolute;
-  white-space: nowrap;
   width: 1px;
   height: 1px;
-  overflow: hidden;
-  border: 0;
   padding: 0;
+  border: 0;
+  white-space: nowrap;
+  overflow: hidden;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
 }

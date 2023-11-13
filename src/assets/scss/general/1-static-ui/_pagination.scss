@@ -6,8 +6,8 @@
 
 .gePagination {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 2.5rem;
   width: 100%;
   @include s.mq(tb-dth) {
@@ -29,8 +29,8 @@
   & .link,
   & .current {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1;
     font-size: var(--font-size-d);
@@ -46,15 +46,15 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      z-index: -1;
       padding: 1.55rem 1.1rem;
       transform: translate(-50%, -50%) rotate(18deg);
       border-radius: 48.5%;
-      z-index: -1;
     }
   }
   & .link {
-    color: var(--text-dark-color);
     text-decoration: underline;
+    color: var(--text-dark-color);
     @include s.mq(dt) {
       &:hover,
       &:focus {
@@ -66,10 +66,10 @@
     }
   }
   & .current {
-    color: var(--white);
-    background-color: var(--text-normal-color);
     width: 1rem;
     height: 1rem;
+    background-color: var(--text-normal-color);
+    color: var(--white);
     &::after {
       background-color: var(--text-normal-color);
     }
