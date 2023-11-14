@@ -1,3 +1,4 @@
+// Stylelint: https://stylelint.io
 module.exports = {
   plugins: ['stylelint-order', 'stylelint-scss'],
   extends: [
@@ -5,10 +6,9 @@ module.exports = {
     'stylelint-config-standard-scss',
     'stylelint-config-recess-order',
     // 'stylelint-config-html/astro',
-    // 'stylelint-config-prettier'
   ],
-  // ignoreFiles: [
-  // ],
+  // ignoreFiles: [],
+  // Rules: https://stylelint.io/user-guide/rules/
   rules: {
     // # Avoid errors
     // - Descending
@@ -115,7 +115,7 @@ module.exports = {
     'selector-max-specificity': null,
     // - Notation
     'alpha-value-notation': null,
-    'color-function-notation': null, // 'modern',
+    'color-function-notation': 'modern',
     'color-hex-length': 'short',
     'hue-degree-notation': null,
     'selector-pseudo-element-colon-notation': 'double',

@@ -13,9 +13,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint:html": "htmlhint --config .htmlhintrc */*.{html}",
+    "lint:html": "htmlhint **/*.html **/blog/*.html **/blog/**/*.html",
     "lint:css": "stylelint **/*.{css,scss}",
-    "lint:es": "eslint **/*.{js,jsx,ts}",
+    "lint:es": "eslint **/*.ts",
     "prepare": "husky install",
     "postinstall": "husky install"
   },

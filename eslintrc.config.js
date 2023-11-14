@@ -1,3 +1,5 @@
+// ESLint: https://eslint.org/
+
 import { FlatCompat } from '@eslint/eslintrc';
 import jsdoc from "eslint-plugin-jsdoc";
 import html from 'eslint-plugin-html';
@@ -9,9 +11,9 @@ import typeScriptESLintParser from '@typescript-eslint/parser';
 const compat = new FlatCompat();
 
 export default [
-  {
-    ignores: ['']
-  },
+  // {
+  //   ignores: ['']
+  // },
   js.configs.recommended,
   eslintConfigPrettier,
   ...compat.extends(
@@ -34,6 +36,7 @@ export default [
         ecmaVersion: 2021
       }
     },
+    // Rules Reference: https://eslint.org/docs/latest/rules/
     rules: {
       'no-console': 'off',
       'no-debugger': 'error',
