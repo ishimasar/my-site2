@@ -1,0 +1,6 @@
+.husky/
+.vscode/
+dist/
+src/*.ts
+eslintrc.config.js
+lint-staged.config.js
