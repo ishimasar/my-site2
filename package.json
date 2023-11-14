@@ -15,7 +15,7 @@
     "astro": "astro",
     "lint:html": "htmlhint **/*.html **/blog/*.html **/blog/**/*.html",
     "lint:css": "stylelint **/*.{css,scss}",
-    "lint:es": "eslint **/*.ts",
+    "lint:es": "eslint **/*.{js,ts}",
     "prepare": "husky install",
     "postinstall": "husky install"
   },
