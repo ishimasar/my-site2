@@ -320,7 +320,7 @@ caption {
   padding-bottom: 0.75rem;
   caption-side: bottom;
   text-align: left;
-  color: hsla(208, 7%, 46%, 1);
+  color: hsl(208 7% 46% / 1);
 }
 
 th {
@@ -353,33 +353,33 @@ dfn {
 
 /* Specify text selection background color and omit drop shadow */
 ::-moz-selection {
-  background-color: hsla(213, 92%, 85%, 1);
+  background-color: hsl(213 92% 85% / 1);
   text-shadow: none;
   /* Required when declaring ::selection */
-  color: hsla(0, 0%, 0%, 1);
+  color: hsl(0 0% 0% / 1);
 }
 
 ::selection {
-  background-color: hsla(213, 92%, 85%, 1);
+  background-color: hsl(213 92% 85% / 1);
   text-shadow: none;
   /* Required when declaring ::selection */
-  color: hsla(0, 0%, 0%, 1);
+  color: hsl(0 0% 0% / 1);
 }
 
 ::-webkit-input-placeholder {
-  color: hsla(0, 0%, 44%, 1);
+  color: hsl(0 0% 44% / 1);
 }
 
 :-ms-input-placeholder {
-  color: hsla(0, 0%, 44%, 1);
+  color: hsl(0 0% 44% / 1);
 }
 
 ::-moz-placeholder {
-  color: hsla(0, 0%, 44%, 1);
+  color: hsl(0 0% 44% / 1);
 }
 
 :placeholder-shown {
-  color: hsla(0, 0%, 44%, 1);
+  color: hsl(0 0% 44% / 1);
 }
 
 /**

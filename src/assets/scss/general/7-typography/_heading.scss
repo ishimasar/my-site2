@@ -10,13 +10,13 @@
   margin: auto;
   background: linear-gradient(
       355.38deg,
-      hsla(36, 94%, 34%, 1) -33.88%,
-      hsla(38, 100%, 58%, .1) 86.5%
+      hsl(36 94% 34% / 1) -33.88%,
+      hsl(38 100% 58% / .1) 86.5%
     ),
-    linear-gradient(267.4deg, hsla(36, 94%, 34%, 1) -12.23%, hsla(38, 94%, 47%, .075) 51.41%),
-    linear-gradient(143.97deg, hsla(23, 69%, 11%, 1) 8.47%, hsla(35, 75%, 46%, .05) 65.63%),
-    radial-gradient(100px at 82% 10%, hsla(23, 69%, 11%, 1) 55%, hsla(31, 100%, 81%, .1) 100%),
-    linear-gradient(0deg, hsla(36, 94%, 34%, 1), hsla(36, 94%, 34%, 1)), hsla(38, 96%, 20%, 1);
+    linear-gradient(267.4deg, hsl(36 94% 34% / 1) -12.23%, hsl(38 94% 47% / .075) 51.41%),
+    linear-gradient(143.97deg, hsl(23 69% 11% / 1) 8.47%, hsl(35 75% 46% / .05) 65.63%),
+    radial-gradient(100px at 82% 10%, hsl(23 69% 11% / 1) 55%, hsl(31 100% 81% / .1) 100%),
+    linear-gradient(0deg, hsl(36 94% 34% / 1), hsl(36 94% 34% / 1)), hsl(38 96% 20% / 1);
   text-align: center;
   letter-spacing: 0.08rem;
   color: transparent;

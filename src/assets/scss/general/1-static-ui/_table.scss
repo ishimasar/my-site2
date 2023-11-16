@@ -21,8 +21,8 @@
 table {
   width: 100%;
   margin-top: 2rem;
-  border-top: solid 0.0625rem hsla(0, 0%, 73%, 1);
-  border-left: solid 0.0625rem hsla(0, 0%, 73%, 1);
+  border-top: solid 0.0625rem hsl(0 0% 73% / 1);
+  border-left: solid 0.0625rem hsl(0 0% 73% / 1);
   border-collapse: collapse;
   & [align="center"] {
     text-align: center;
@@ -44,8 +44,8 @@ table {
   tr > th,
   tr > td {
     width: 12rem;
-    border-right: solid 0.0625rem hsla(0, 0%, 73%, 1);
-    border-bottom: solid 0.0625rem hsla(0, 0%, 73%, 1);
+    border-right: solid 0.0625rem hsl(0 0% 73% / 1);
+    border-bottom: solid 0.0625rem hsl(0 0% 73% / 1);
     vertical-align: top;
     @include setting.mq(dt) {
       padding: 0.75rem 1.5rem;
@@ -57,20 +57,20 @@ table {
       background-image: linear-gradient(
         to right top,
         transparent 50%,
-        hsla(0, 0%, 73%, 1) 50%,
-        hsla(0, 0%, 73%, 1) 51%,
+        hsl(0 0% 73% / 1) 50%,
+        hsl(0 0% 73% / 1) 51%,
         transparent 51%
       );
     }
   }
   tr > th {
-    background: hsla(0, 0%, 94%, 1);
+    background: hsl(0 0% 94% / 1);
   }
   tr > td {
-    background: hsla(0, 100%, 100%, 1);
+    background: hsl(0 100% 100% / 1);
   }
   tr > td.cell-highlight {
-    background: hsla(58, 100%, 89%, 1);
+    background: hsl(58 100% 89% / 1);
   }
   &.-head-sticky {
     & tbody th {

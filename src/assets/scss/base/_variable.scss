@@ -68,21 +68,21 @@
   --font-size-h: calc(1rem * 8 / 3); // 2.66666rem / 42.66666px
 
   /* color - semantic type */
-  --text-normal-color: hsla(23, 36%, 23%, 1); // #4f3525 : Hexadecimal color code
+  --text-normal-color: hsl(23 36% 23% / 1); // #4f3525 : Hexadecimal color code
 
-  --text-dark-color: hsla(23, 100%, 8%, 1); // #280f00
-  --text-highlight-color: hsla(35, 27%, 63%, 1); // #bba688
-  --logo-color: hsla(23, 69%, 11%, 1); // #311809
-  --line-color: hsla(23, 36%, 23%, 1);
-  --frame-color: hsla(23, 36%, 23%, 1);
-  --bg-pale-color: hsla(32, 62%, 96%, 1); // #fbf5ee
-  --accent-color: hsla(229, 73%, 19%, 1); // #0d1a53
-  --focusring-color: hsla(217, 99%, 71%, 1); // #6ca3fe
-  --error-color: hsla(350, 100%, 45%, 1); // #e60027
+  --text-dark-color: hsl(23 100% 8% / 1); // #280f00
+  --text-highlight-color: hsl(35 27% 63% / 1); // #bba688
+  --logo-color: hsl(23 69% 11% / 1); // #311809
+  --line-color: hsl(23 36% 23% / 1);
+  --frame-color: hsl(23 36% 23% / 1);
+  --bg-pale-color: hsl(32 62% 96% / 1); // #fbf5ee
+  --accent-color: hsl(229 73% 19% / 1); // #0d1a53
+  --focusring-color: hsl(217 99% 71% / 1); // #6ca3fe
+  --error-color: hsl(350 100% 45% / 1); // #e60027
 
   /* color - declarative type */
-  --black: hsla(0, 0%, 20%, 1); // #333
-  --white: hsla(0, 100%, 100%, 1); // #fff
+  --black: hsl(0 0% 20% / 1); // #333
+  --white: hsl(0 100% 100% / 1); // #fff
 
   /* easing - declarative type */
 
@@ -129,43 +129,43 @@
   /* ui parts - semantic type */
   --logo-hover-gradient: linear-gradient(
     108deg,
-    hsla(36, 94%, 34%, 1) 0,
-    hsla(38, 96%, 20%, 1) 30%,
-    hsla(23, 69%, 11%, 1) 70%,
-    hsla(23, 100%, 8%, 1) 90%
+    hsl(36 94% 34% / 1) 0,
+    hsl(38 96% 20% / 1) 30%,
+    hsl(23 69% 11% / 1) 70%,
+    hsl(23 100% 8% / 1) 90%
   );
   --globalnav-hover-gradient-r: linear-gradient(
     to right,
-    hsla(37, 90%, 45%, 1) 0,
-    hsla(23, 69%, 23%, 1) 60%
+    hsl(37 90% 45% / 1) 0,
+    hsl(23 69% 23% / 1) 60%
   );
   --globalnav-hover-gradient-l: linear-gradient(
     to left,
-    hsla(37, 90%, 45%, 1) 0,
-    hsla(23, 69%, 23%, 1) 60%
+    hsl(37 90% 45% / 1) 0,
+    hsl(23 69% 23% / 1) 60%
   );
-  --textbox-shadow: 0 10px 15px -3px hsla(0, 0%, 0%, .2),
-    0 4px 6px -2px hsla(0, 0%, 0%, .1);
-  --textbox-bg1: hsla(0, 100%, 100%, .95);
-  --textbox-bg2: hsla(32, 62%, 96%, .9);
-  --textbox-hover-shadow: 0 12px 12px 0 hsla(0, 0%, 0%, .14),
-    0 5px 7px 0 hsla(0, 0%, 0%, .065);
-  --tag-shadow: 2px 3px 4px 2px hsla(0, 0%, 0%, .25);
-  --tag-hover-shadow: 3px 3.5px 6px 3px hsla(0, 0%, 0%, .2);
-  --button-shadow: 2px 4px 5px 2px hsla(0, 0%, 0%, .25);
+  --textbox-shadow: 0 10px 15px -3px hsl(0 0% 0% .2),
+    0 4px 6px -2px hsl(0 0% 0% .1);
+  --textbox-bg1: hsl(0 100% 100% .95);
+  --textbox-bg2: hsl(32 62% 96% .9);
+  --textbox-hover-shadow: 0 12px 12px 0 hsl(0 0% 0% .14),
+    0 5px 7px 0 hsl(0 0% 0% .065);
+  --tag-shadow: 2px 3px 4px 2px hsl(0 0% 0% .25);
+  --tag-hover-shadow: 3px 3.5px 6px 3px hsl(0 0% 0% .2);
+  --button-shadow: 2px 4px 5px 2px hsl(0 0% 0% .25);
   --button-hover-gradient: linear-gradient(
     115deg,
-    hsla(36, 94%, 34%, 1) 0,
-    hsla(23, 100%, 8%, 1) 40%
+    hsl(36 94% 34% / 1) 0,
+    hsl(23 100% 8% / 1) 40%
   );
-  --button-hover-shadow: 3px 5.5px 6px 3px hsla(0, 0%, 0%, .2);
-  --button-transition: all cubic-bezier(0.55, 0.085, 0.68, .53) 0.2s;
+  --button-hover-shadow: 3px 5.5px 6px 3px hsl(0 0% 0% .2);
+  --button-transition: all cubic-bezier(0.55 0.085 0.68 .53) 0.2s;
   --footer-bg: linear-gradient(
     -28deg,
-    hsla(25, 57%, 22%, 1) 5%,
-    hsla(23, 100%, 8%, 1) 28%,
-    hsla(23, 100%, 8%, 1) 75%,
-    hsla(24, 52%, 24%, 1) 95%
+    hsl(25 57% 22% / 1) 5%,
+    hsl(23 100% 8% / 1) 28%,
+    hsl(23 100% 8% / 1) 75%,
+    hsl(24 52% 24% / 1) 95%
   );
 
   /* other - semantic type */

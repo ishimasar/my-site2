@@ -70,7 +70,7 @@
     background-color: var(--accent-color);
   }
   &.-tag {
-    background-color: hsla(136, 78%, 22%, 1);
+    background-color: hsl(136 78% 22% / 1);
   }
 }
 
@@ -78,7 +78,7 @@
 .geSubmitButton {
   display: table;
   background-color: var(--text-dark-color);
-  background-image: linear-gradient(140deg, hsla(36, 94%, 34%, 1) 0, var(--text-dark-color) 35%);
+  background-image: linear-gradient(140deg, hsl(36 94% 34% / 1) 0, var(--text-dark-color) 35%);
   background-position: 0 0;
   background-size: 200% 200%;
   line-height: 1;
@@ -86,7 +86,7 @@
   -webkit-font-smoothing: antialiased;
   color: var(--white);
   border-radius: 5px;
-  box-shadow: 3px 3px 3px 1px hsla(0, 0%, 0%, .25);
+  box-shadow: 3px 3px 3px 1px hsl(0 0% 0% / .25);
   transition: transform var(--ease-out-cubic) 0.3s;
   @include s.mq(dt) {
     margin: 2rem auto auto;
@@ -123,7 +123,7 @@
   }
   &:active {
     transform: translate(-0.08rem, 0.06rem);
-    box-shadow: 2px 2px 2px 1px hsla(0, 0%, 0%, .25);
+    box-shadow: 2px 2px 2px 1px hsl(0 0% 0% / .25);
     transition: all var(--ease-in-quad) 0.1s 0;
   }
 }
