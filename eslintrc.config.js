@@ -18,7 +18,8 @@ export default [
   eslintConfigPrettier,
   ...compat.extends(
     'plugin:node/recommended',
-    'plugin:@typescript-eslint/eslint-recommended'
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:astro/recommended'
   ),
   {
     plugins: {
@@ -33,7 +34,8 @@ export default [
       parser: typeScriptESLintParser,
       parserOptions: {
         sourceType: 'module',
-        ecmaVersion: 2021
+        ecmaVersion: 'latest',
+        extraFileExtensions: ['.astro']
       }
     },
     // Rules Reference: https://eslint.org/docs/latest/rules/
