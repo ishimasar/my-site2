@@ -144,21 +144,21 @@
     hsl(37 90% 45% / 1) 0,
     hsl(23 69% 23% / 1) 60%
   );
-  --textbox-shadow: 0 10px 15px -3px hsl(0 0% 0% .2),
-    0 4px 6px -2px hsl(0 0% 0% .1);
-  --textbox-bg1: hsl(0 100% 100% .95);
-  --textbox-bg2: hsl(32 62% 96% .9);
-  --textbox-hover-shadow: 0 12px 12px 0 hsl(0 0% 0% .14),
-    0 5px 7px 0 hsl(0 0% 0% .065);
-  --tag-shadow: 2px 3px 4px 2px hsl(0 0% 0% .25);
-  --tag-hover-shadow: 3px 3.5px 6px 3px hsl(0 0% 0% .2);
-  --button-shadow: 2px 4px 5px 2px hsl(0 0% 0% .25);
+  --textbox-shadow: 0 10px 15px -3px hsl(0 0% 0% / .2),
+    0 4px 6px -2px hsl(0 0% 0% / .1);
+  --textbox-bg1: hsl(0 100% 100% / .95);
+  --textbox-bg2: hsl(32 62% 96% / .9);
+  --textbox-hover-shadow: 0 12px 12px 0 hsl(0 0% 0% / .14),
+    0 5px 7px 0 hsl(0 0% 0% / .065);
+  --tag-shadow: 2px 3px 4px 2px hsl(0 0% 0% / .25);
+  --tag-hover-shadow: 3px 3.5px 6px 3px hsl(0 0% 0% / .2);
+  --button-shadow: 2px 4px 5px 2px hsl(0 0% 0% / .25);
   --button-hover-gradient: linear-gradient(
     115deg,
     hsl(36 94% 34% / 1) 0,
     hsl(23 100% 8% / 1) 40%
   );
-  --button-hover-shadow: 3px 5.5px 6px 3px hsl(0 0% 0% .2);
+  --button-hover-shadow: 3px 5.5px 6px 3px hsl(0 0% 0% / .2);
   --button-transition: all cubic-bezier(0.55 0.085 0.68 .53) 0.2s;
   --footer-bg: linear-gradient(
     -28deg,
