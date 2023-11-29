@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import { remarkReadingTime } from './src/lib/remark-reading-time';
 import mdx from '@astrojs/mdx';
+import mdxMermaid from 'mdx-mermaid';
+import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
 import react from '@astrojs/react';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -41,7 +43,12 @@ export default defineConfig({
           [remarkToc, {
             heading: 'Contents'
           }],
-          remarkReadingTime],
+          remarkReadingTime,
+          [mdxMermaid, {
+            output: 'svg'}
+          ]
+        ],
+        components: {mermaid: Mermaid, Mermaid},
         rehypePlugins: [
           rehypeKatex,
           rehypeSlug,

@@ -1,0 +1,38 @@
+---
+layout: ../../layouts/Layout.astro
+slug: mermaid-drawing-with-mdx
+title: Astro&MDXでダイアグラムやチャート描画できるようにしてみた
+author: Cloudy knot
+publishDate: "2023-11-29"
+updateDate: "-"
+description: フローチャートやシーケンス図、クラス図などが書けるJSライブラリ・Mermaidを衝動的にこのブログに入れてみた。
+thumb: /image/blog/thumb8.webp
+category: Coding-IT
+tags: [mdx, mermaid]
+draft: false
+---
+## Contents
+
+## What is a Mermaid?
+
+ふとした瞬間、不意にフローチャートやシーケンス図、クラス図が書きたくなるときってあるよね？(え、ないって？)
+
+ということで、ダイアグラムやチャート作成できるツール=JSライブラリの[Mermaid](https://mermaid.js.org/)を、このブログ記事を書いているMDXファイルフォーマット内で書けるようにしたので、導入手順を振り返ってみたい。
+
+```mermaid
+flowchart TB
+    A([start]) --> B{true?}
+    B --Yes--> C[process]
+    B --No--> D[exception]
+    C & D --> E([end])
+```
+
+<p class="mermaid-caption">フローチャート図の例</p>
+
+## Astro&MDXへの導入手順
+
+以下のURLの「Quick start」を参考にmdx-mermaidをAstroに導入した。一部ドキュメント通りだとうまく動かなかった部分があったので、その詳細については追記する。
+
+https://github.com/sjwall/mdx-mermaid
+
+後日更新。
