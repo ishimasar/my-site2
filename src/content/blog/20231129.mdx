@@ -37,7 +37,7 @@ flowchart TB
     A([start]) --> B{true?}
     B --Yes--> C[process]
     B --No--> D[exception]
-    C
+    C & D --> E([end])
 ```　
 ```
 
