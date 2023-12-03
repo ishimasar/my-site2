@@ -7,6 +7,7 @@ module.exports = {
     'stylelint-config-recess-order',
     // 'stylelint-config-html/astro',
   ],
+  customSyntax: 'postcss-html',
   // ignoreFiles: [],
   // Rules: https://stylelint.io/user-guide/rules/
   rules: {
@@ -119,6 +120,7 @@ module.exports = {
     'color-hex-length': 'short',
     'hue-degree-notation': null,
     'selector-pseudo-element-colon-notation': 'double',
+    'selector-not-notation': null,
     // - Pattern
     'comment-pattern': null,
     'custom-media-pattern': null,

@@ -101,7 +101,7 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     margin: 1rem auto auto;
   }
   a .math.math-inline .katex *,
-  a[href*=katex] {
+  a[href*="katex"] {
     text-decoration: none !important;
   }
   .svg-inline--fa.fa-w-16 {
@@ -111,19 +111,19 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       padding-right: .3rem;
     }
   }
-  h2[id=contents] {
+  h2[id="contents"] {
     width: fit-content;
     margin: 1.5rem auto 0;
     padding: .25rem .5rem;
     border-bottom: 1px solid var(--line-color);
     text-align: center;
     line-height: 1;
-    font-weight: 600;
     font-size: var(--font-size-d);
+    font-weight: 600;
   }
-  h2[id=contents] + ul {
-    margin: .5rem auto;
+  h2[id="contents"] + ul {
     list-style-type: decimal;
+    margin: .5rem auto;
     border: 1px dotted var(--line-color);
     @include s.mq(dt) {
       width: 42rem;
@@ -136,14 +136,10 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     > li, * {
       > a {
         display: block;
-        margin: {
-        top: .25rem;
-        bottom: .25rem;
-      };
-        padding: {
-          top: .5rem;
-          bottom: .5rem;
-        };
+        margin-top: .25rem;
+        margin-bottom: .25rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
         @include s.mq(dt) {
           line-height: 1.5;
           font-size: var(--font-size-d);
@@ -159,10 +155,8 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     width: 45%;
     margin-right: auto;
     > .link {
-      padding: {
-        top: .5rem;
-        bottom: .5rem;
-      }
+      padding-top: .5rem;
+      padding-bottom: .5rem;
       font-size: var(--font-size-f);
     }
   }
@@ -185,16 +179,12 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     margin: auto;
     background-color: var(--bg-pale-color);
     @include s.mq(dt) {
-      padding: {
-        top: 3rem;
-        bottom: 6rem;
-      }
+      padding-top: 3rem;
+      padding-bottom: 6rem;
     }
     @include s.mq(sp-tb) {
-      padding: {
-        top: 2rem;
-        bottom: 4rem;
-      }
+      padding-top: 2rem;
+      padding-bottom: 4rem;
     }
   }
   .artArticle {
@@ -203,8 +193,8 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     border: 1.5px solid var(--line-color);
     background-color: var(--white);
     border-radius: 0.25rem;
-    box-shadow: 0 10px 15px 3px hsla(0, 0%, 0%, 0.1),
-      0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px 3px hsl(0 0% 0% / .1),
+      0 4px 6px -1px rgb(2 1 1 / .05);
     @include s.mq(tb-dth) {
       padding: 3rem 5rem 4rem;
     }
@@ -237,11 +227,11 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         font-size: calc(var(--font-size-e) + 0.15rem);
       }
       > .en {
+        @include s.engFont;
         display: block;
         margin: 0.8rem auto;
-        @include s.engFont;
-        font-weight: bold;
         text-transform: uppercase;
+        font-weight: bold;
         @include s.mq(dt) {
           font-size: var(--font-size-d);
         }
@@ -255,7 +245,7 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         border-bottom: 1px solid var(--frame-color);
       }
     }
-    & h2:not([id=contents]) {
+    & h2:not([id="contents"]) {
       @include s.mq(dt) {
         margin-top: 2.5rem;
       }
@@ -263,14 +253,14 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         margin-top: 2rem;
       }
     }
-    > h2:not([id=contents]) {
+    > h2:not([id="contents"]) {
       @extend %geHeading2Article;
     }
     & h3 {
+      @include s.hrMarginTop(2rem);
       display: table;
       position: relative;
       background: linear-gradient(transparent 89%, var(--text-highlight-color) 87%);
-      @include s.hrMarginTop(2rem);
       font-style: normal;
       font-weight: bold;
       @include s.mq(dt) {
@@ -345,14 +335,14 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     & figcaption {
       margin-top: 1.5rem;
     }
-    > span:not([class*='token']):not([class='line-numbers-rows']) {
+    > span:not([class*="token"]):not(.line-numbers-rows) {
       display: inline-block;
       margin-top: 1rem;
       padding: 0.2rem 0.8rem;
       border: 1px solid var(--text-dark-color);
       background-color: var(--white);
-      font-weight: normal;
       font-size: calc(var(--font-size-c) - 0.02rem);
+      font-weight: normal;
       color: var(--text-dark-color);
       border-radius: 0.3rem 0.3rem 0 0;
       &:first-of-type {
@@ -380,12 +370,10 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       background-color: #efefef;
       border-radius: 3px;
     }
-    > ul:not([id=contents] + ul),
+    > ul:not([id="contents"] + ul),
     > ol {
-      padding: {
-        top: 1rem;
-        left: 1.5em;
-      }
+      padding-top: 1rem;
+      padding-left: 1.5em;
       line-height: 1.7;
       font-family: var(--sentence-font);
       @include s.mq(tb-dth) {
@@ -401,8 +389,8 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     > ul {
       list-style: disc;
       & ul {
-        padding-left: 1em;
         list-style-type: circle;
+        padding-left: 1em;
       }
     }
     > ol {
@@ -413,7 +401,7 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       margin: 1.5rem 0 auto;
       padding-left: 1.25rem;
       > p {
-        color: hsla(0, 0%, 45%, 1);
+        color: hsl(0 0% 45% / 1);
         @include s.mq(tb-dth) {
           font-size: var(--font-size-d);
         }
@@ -422,8 +410,8 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         }
       }
       & a {
-        color: var(--accent-color);
         text-decoration: underline;
+        color: var(--accent-color);
         &:hover,
         &:focus {
           text-decoration: none;
@@ -436,7 +424,7 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         left: 0;
         width: auto;
         height: 100%;
-        border-left: 4px solid hsla(0, 0%, 45%, 1);
+        border-left: 4px solid hsl(0 0% 45% / 1);
       }
     }
     & small {
@@ -448,13 +436,13 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       height: 1px;
       margin-top: 1rem;
       border: none;
-      background-color: hsla(23, 36%, 23%, .8);
+      background-color: hsla(23 36% 23% / .8);
     }
     & iframe {
       display: block;
       width: 60vw;
-      min-width: 300px;
       max-width: 560px;
+      min-width: 300px;
       margin: 1.5rem auto auto;
       aspect-ratio: 16 / 9;
     }
@@ -542,24 +530,23 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     }
   }
   .nearContContainer {
+    display: flex;
     width: 80vw;
     max-width: 60rem;
-    display: flex;
     margin: auto;
+    @include s.mq(tb-dth) {
+      justify-content: space-around;
+    }
+    @include s.mq(sp) {
+      justify-content: space-between;
+    }
     & .link {
       width: 45%;
       height: 3.2rem;
+      text-decoration: underline;
+      text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
-      text-decoration: underline;
-      &.-prev {
-        margin-right: auto;
-      }
-      &.-next {
-        margin-left: auto;
-        text-align: right;
-      }
       @include s.mq(tb-dth) {
         font-size: var(--font-size-d);
         &:hover,
@@ -570,12 +557,13 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       @include s.mq(sp) {
         font-size: var(--font-size-c);
       }
-    }
-    @include s.mq(tb-dth) {
-      justify-content: space-around;
-    }
-    @include s.mq(sp) {
-      justify-content: space-between;
+      &.-prev {
+        margin-right: auto;
+      }
+      &.-next {
+        margin-left: auto;
+        text-align: right;
+      }
     }
   }
   .filterContainer {
@@ -583,12 +571,12 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     justify-content: center;
     font-size: var(--font-size-d);
     @include s.mq(dt) {
-      gap: 5rem;
       @include s.hrMarginTop(3rem);
+      gap: 5rem;
     }
     @include s.mq(sp-tb) {
-      gap: 2rem;
       @include s.hrMarginTop(1.5rem);
+      gap: 2rem;
     }
     & .category {
       padding: .75rem;
@@ -606,8 +594,8 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
     }
     & .tag {
       padding: .75rem;
-      border: 1px solid hsla(136, 78%, 22%, 1);
-      color: hsla(136, 78%, 22%, 1);
+      border: 1px solid hsla(136 78% 22% / 1);
+      color: hsla(136 78% 22% / 1);
       @include s.mq(dt) {
         &:hover,
         &:focus {
@@ -621,10 +609,10 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
   }
   svg[id*='mermaid-'] {
     display: block;
-    margin: 16px auto;
+    margin: 1rem auto;
   }
   .mermaid-caption {
-      @include s.hrMarginTop(.25rem);
-      text-align: center;
-    }
+    @include s.hrMarginTop(.25rem);
+    text-align: center;
+  }
 </style>

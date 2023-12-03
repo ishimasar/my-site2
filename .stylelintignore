@@ -1,6 +1,7 @@
 .astro/
 .husky/
 .vscode/
-blog/
+blog/.astro/
 dist/
-*.astro
+
+global.css

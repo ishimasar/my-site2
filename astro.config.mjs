@@ -69,6 +69,6 @@ export default defineConfig({
   server: {
     port: 8080
   },
-  // output: 'hybrid',
+  output: 'hybrid',
   // adapter: vercel()
 });
