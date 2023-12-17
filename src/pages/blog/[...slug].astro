@@ -140,6 +140,7 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         margin-bottom: .25rem;
         padding-top: .5rem;
         padding-bottom: .5rem;
+        word-break: break-all;
         @include s.mq(dt) {
           line-height: 1.5;
           font-size: var(--font-size-d);
@@ -278,6 +279,7 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
       }
       > a {
         text-decoration: underline;
+        word-break: break-all;
         color: var(--accent-color);
         @include s.mq(dt) {
           &:hover {
@@ -606,6 +608,10 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         font-size: var(--font-size-c);
       }
     }
+  }
+  astro-island + .caption {
+    @include s.hrMarginTop(.25rem);
+    text-align: right;
   }
   svg[id*='mermaid-'] {
     display: block;

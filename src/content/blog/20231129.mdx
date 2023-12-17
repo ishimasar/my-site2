@@ -4,13 +4,13 @@ slug: mermaid-drawing-with-mdx
 title: AstroにMarkdown記法でダイアグラムやチャート描画できるようにした
 author: Cloudy knot
 publishDate: "2023-11-29"
-updateDate: "-"
+updateDate: "2023-12-17"
 description: フローチャートやシーケンス図、クラス図などが書けるJSライブラリ・Mermaidを衝動的にこのブログに入れてみた。
 thumb: /image/blog/thumb8.webp
 category: Coding-IT
 tags: [mdx, mermaid]
 draft: false
----
+--- 
 ## Contents
 
 ## What is a Mermaid?
@@ -48,3 +48,41 @@ flowchart TB
 [https://github.com/sjwall/mdx-mermaid](https://github.com/sjwall/mdx-mermaid)
 
 後日更新。
+
+```mermaid
+---
+title: Animal example
+---
+classDiagram
+    note "From Duck till Zebra"
+    Animal <|-- Duck
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+        +String beakColor
+        +swim()
+        +quack()
+    }
+    class Fish{
+        -int sizeInFeet
+        -canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }
+```
+
+
+
+```mermaid
+pie title Pets adopted by volunteers
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 15
+```

@@ -6,7 +6,7 @@ author: Cloudy knot
 publishDate: "2023-09-02"
 updateDate: "-"
 description: コーディングエディタ・VS Codeで自分用の独自スニペットをサクッと設定
-thumb: /image/blog/thumb5.webp
+thumb: https://placehold.jp/30/dd6699/ffffff/1024x576.png?text=placeholder+image
 category: Coding-IT
 tags: [vscode, snippet]
 draft: false
