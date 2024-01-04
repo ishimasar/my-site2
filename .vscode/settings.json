@@ -1,4 +1,12 @@
 {
   "editor.fontSize": 15.5,
-  "vetur.format.defaultFormatter.js": "none"
+  "vetur.format.defaultFormatter.js": "none",
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      "savePath": null,
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
 }
