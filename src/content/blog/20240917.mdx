@@ -1,0 +1,45 @@
+---
+layout: ../../layouts/Layout.astro
+slug: test
+title: テスト
+author: Cloudy knot
+publishDate: "2024-09-17"
+updateDate: "-"
+description: テスト記事
+thumb: /image/blog/thumb1.webp
+category: Coding-IT
+tags: [programming, language]
+draft: true
+---
+## Contents
+
+LISP
+
+```lisp
+  (print (+ 1 2))
+  (print (- 1 2))
+  (print (* 1 2))
+  (print (/ 1 2))
+```
+
+Prolog
+
+```prolog
+  % この Prolog コードは、"Foo.razor" コンポーネントが初めてレンダリングされる1回だけ、
+  % Prolog エンジンに読み込まれます (consult されます)。
+
+  input(name, "").
+
+  bird("swallow", canfly).
+  bird("penguin", canswim).
+  canfly(Name) :- bird(Name, canfly).
+
+  classify(Name, "can fly") :- canfly(Name).
+  classify(Name, "is bird, but can't fly.") :- bird(Name, _).
+  classify(_, "isn't bird.").
+
+  check :-
+      input(name, Name), classify(Name, Message),
+      retractall(message(_, _)), asserta(message(Name, Message)).
+
+```
