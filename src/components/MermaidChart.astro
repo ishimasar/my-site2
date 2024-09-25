@@ -1,0 +1,13 @@
+---
+const { chart } = Astro.props;
+const themedChart = `%%{init: {'theme':'default'}}%%\n${chart}`;
+---
+
+<div class="mermaid">
+  {themedChart}
+</div>
+
+<script>
+  import mermaid from 'mermaid';
+  mermaid.initialize({ startOnLoad: true });
+</script>
