@@ -51,7 +51,8 @@ export default [
       'node/no-unsupported-features/es-syntax': 'off',
       'no-process-exit': 'off',
       'node/no-missing-import': 'off',
-      '@typescript-eslint/consistent-type-imports': 'error'
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-import-type-side-effects':'error'
     }
   }
 ]
