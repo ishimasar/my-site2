@@ -26,7 +26,7 @@ import MermaidChart from '../../components/MermaidChart.astro';
   flowchart TB
     A([start]) --> B{true?}
     B --Yes--> C[process]
-    B --No--> D[exception]
+    B --No --> D[exception]
     C & D --> E([end])
 `} />
 
@@ -38,7 +38,7 @@ Markdown: チャート図の書き方
 flowchart TB
     A([start]) --> B{true?}
     B --Yes--> C[process]
-    B --No--> D[exception]
+    B --No --> D[exception]
     C & D --> E([end])　
 ```
 

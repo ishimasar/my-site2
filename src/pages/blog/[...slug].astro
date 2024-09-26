@@ -6,11 +6,14 @@ import Head from '../../components/Head.astro';
 import '../../assets/scss/global.scss'
 
 type Props = {
-    page: Page<CollectionEntry<'blog'>>;
+  page: Page<CollectionEntry<'blog'>>;
 };
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
+  const blogEntries = await getCollection('blog', ({ data }) => {
+    return data.draft !== true; // draftプロパティがtrue値のとき、その記事は描画しない
+    // return import.meta.env.PROD ? data.draft !== true : true; // 本番環境でドラフト記事描画せず、開発環境では値関係なく描画
+  });
   const numberOfPosts = blogEntries.length;
   const nonDraftPosts = blogEntries.filter((blog) => !blog.draft);
 

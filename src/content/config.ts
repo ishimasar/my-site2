@@ -12,6 +12,7 @@ const blogCollection = defineCollection({
     thumb: z.string(),
     category: z.string(),
     tags: z.array(z.string()),
+    draft: z.boolean(),
   }),
 });
 // 3. ブログ一覧を取得するため、collectionsとして定義
