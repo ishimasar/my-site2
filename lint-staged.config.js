@@ -1,6 +1,6 @@
 export default {
   '**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
-  // '**/*.ts': 'eslint',
+  '**/*.ts': 'eslint',
   '**/*.scss': 'stylelint',
   '**/*.astro': 'htmlhint --config .htmlhintrc'
 }
