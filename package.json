@@ -23,14 +23,14 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^2.2.1",
-    "@astrojs/mdx": "^0.19.7",
-    "@astrojs/partytown": "^1.2.3",
-    "@astrojs/react": "^2.3.2",
-    "@astrojs/sitemap": "^2.0.1",
-    "@astrojs/vercel": "^3.7.2",
+    "@astrojs/markdown-remark": "^5.2.0",
+    "@astrojs/mdx": "^3.1.7",
+    "@astrojs/partytown": "^2.1.2",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/vercel": "^7.8.1",
     "@mdx-js/mdx": "^2.0.0",
-    "astro": "^2.8.0",
+    "astro": "^4.15.9",
     "mdast-util-to-string": "^4.0.0",
     "mdx": "^0.2.3",
     "mdx-mermaid": "^2.0.0",
@@ -41,9 +41,9 @@
     "reading-time": "^1.5.0",
     "recharts": "^2.8.0",
     "rehype-autolink-headings": "^6.1.1",
-    "rehype-katex": "^6.0.3",
+    "rehype-katex": "^7.0.1",
     "rehype-slug": "^5.1.0",
-    "remark-math": "^5.1.1",
+    "remark-math": "^6.0.0",
     "remark-toc": "^8.0.1"
   },
   "devDependencies": {
