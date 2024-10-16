@@ -1,6 +1,13 @@
 ---
-export interface Props {
-}
+export interface Props {}
+import { ViewTransitions } from "astro:transitions";
 ---
 
-<slot />
+<html lang="ja">
+  <head>
+    <ViewTransitions />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
