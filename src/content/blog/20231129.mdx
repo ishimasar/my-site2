@@ -22,24 +22,24 @@ import MermaidChart from '../../components/MermaidChart.astro';
 
 ということで、思い立ってダイアグラムやチャートの作成ができるツール=JSライブラリの[Mermaid](https://mermaid.js.org/)を、このブログ記事を書いているMDXファイル内にMarkdown記法で書けるようにしたので、導入手順を振り返ってみたい。
 
-```mermaid
+<MermaidChart chart={`
   flowchart TB
     A([start]) --> B{true?}
     B --Yes--> C[process]
     B --No --> D[exception]
     C & D --> E([end])
-```
+`} />
 
 <p class="mermaid-caption">フローチャート図の例</p>
 
 Markdown: チャート図の書き方
 
-```mdx
+```markdown
 flowchart TB
   A([start]) --> B{true?}
   B --Yes--> C[process]
   B --No --> D[exception]
-  C & D --> E([end])
+  C & D --> E([end])　
 ```
 
 ## Astro&MDXへの導入手順
@@ -50,7 +50,7 @@ flowchart TB
 
 後日更新。
 
-```mermaid
+<MermaidChart chart={`
   classDiagram
     note "From Duck till Zebra"
     Animal <|-- Duck
@@ -62,23 +62,23 @@ flowchart TB
     Animal: +isMammal()
     Animal: +mate()
     class Duck{
-      +String beakColor
-      +swim()
-      +quack()
+        +String beakColor
+        +swim()
+        +quack()
     }
     class Fish{
-      -int sizeInFeet
-      -canEat()
+        -int sizeInFeet
+        -canEat()
     }
     class Zebra{
-      +bool is_wild
-      +run()
+        +bool is_wild
+        +run()
     }
-```
+`} />
 
-```mermaid
+<MermaidChart chart={`
   pie title Pets adopted by volunteers
     "Dogs" : 386
     "Cats" : 85
     "Rats" : 15
-```
+`} />
