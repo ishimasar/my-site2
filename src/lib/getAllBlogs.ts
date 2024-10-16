@@ -9,7 +9,7 @@ interface Blog {
 
 export async function getAllBlogs(): Promise<Blog[]> {
   const blogs = await getCollection("blog"); // 設定ファイルで指定したキーを設定
-  return blogs:any
+  return blogs
     .map((blog) => ({ ...blog.data, slug: blog.slug }))
     .sort(
       (a, z) =>
