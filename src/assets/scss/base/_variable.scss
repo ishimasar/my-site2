@@ -178,4 +178,10 @@
   /* hover effect transition - semantic type */
   // --in-transition: color .25s var(--ease-in-out-quad), background-color .25s var(--ease-in-out-quad), transform .25s var(--ease-in-out-quad);
   // --out-transition: color .3s var(--ease-out-quad), background-color .3s var(--ease-in-out-quad), transform .3s var(--ease-in-out-quad);
+
+  --pagefind-ui-scale: .925;
+  --pagefind-ui-border-width: 1.5px;
+  --pagefind-ui-border: #503626;
+  --pagefind-ui-border-radius: 6px;
+  --pagefind-ui-image-border-radius: 6px;
 }
