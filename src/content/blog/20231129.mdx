@@ -35,13 +35,11 @@ import MermaidChart from '../../components/MermaidChart.astro';
 Markdown: チャート図の書き方
 
 ```mdx
-  ``` ``` ```mermaid
-    flowchart TB
-      A([start]) --> B{true?}
-      B --Yes--> C[process]
-      B --No --> D[exception]
-      C & D --> E([end])
-  ``` ``` ```
+flowchart TB
+  A([start]) --> B{true?}
+  B --Yes--> C[process]
+  B --No --> D[exception]
+  C & D --> E([end])
 ```
 
 ## Astro&MDXへの導入手順
