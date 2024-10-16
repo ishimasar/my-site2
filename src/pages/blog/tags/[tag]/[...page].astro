@@ -7,10 +7,10 @@ export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob("../../../../content/blog/*.{md,mdx}");
   const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
   const uniqueTags = [
-    ...new Set(nonDraftPosts.map((post) => post.frontmatter.tags).flat().sort((a, b) => a.localeCompare(b))),
+    ...new Set(nonDraftPosts.map((post) => post.frontmatter.tags).flat()),
   ];
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((posts: any) =>
+    const filteredPosts = nonDraftPosts.filter((posts: any) =>
       posts.frontmatter.tags.includes(tag)
     );
     const sortedPosts = filteredPosts.sort((a, b) => {

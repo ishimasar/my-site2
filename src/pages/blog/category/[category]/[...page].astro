@@ -6,12 +6,11 @@ import '../../../../assets/scss/global.scss'
 export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob("../../../../content/blog/*.{md,mdx}");
   const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
-
   const uniqueCates = [
-    ...new Set(nonDraftPosts.map((post) => post.frontmatter.category).flat()),
+    ...new Set(nonDraftPosts.map((post) => post.frontmatter.category).flat().sort((a, b) => a.localeCompare(b))),
   ];
   return uniqueCates.map((category) => {
-    const filteredPosts = allPosts.filter((posts: any) =>
+    const filteredPosts = nonDraftPosts.filter((posts: any) =>
       posts.frontmatter.category.includes(category)
     );
     const sortedPosts = filteredPosts.sort((a, b) => {
