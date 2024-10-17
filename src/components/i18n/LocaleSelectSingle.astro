@@ -36,17 +36,17 @@ import { getLocalePaths, LOCALES } from "../../i18n";
   @use "../../assets/scss/base/setting" as s;
 
   label {
-    font-family: "Material Icons Sharp";
-    position: relative;
     display: inline-block;
+    position: relative;
     width: 10rem;
     margin-block-end: 1rem;
     margin-inline-end: 5%;
     text-align-last: left;
+    font-family: "Material Icons Sharp";
     .material-icons-sharp {
-      pointer-events: none;
       position: absolute;
       color: var(--text-normal-color);
+      pointer-events: none;
       &:first-child {
         font-size: var(--font-size-d);
         inset: 8px auto 8px 8px;
@@ -65,24 +65,26 @@ import { getLocalePaths, LOCALES } from "../../i18n";
       width: 2.25rem;
       height: 100%;
       background: no-repeat url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNi4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTAgMTI4QzAgOTIuNyAyOC43IDY0IDY0IDY0bDE5MiAwIDQ4IDAgMTYgMCAyNTYgMGMzNS4zIDAgNjQgMjguNyA2NCA2NGwwIDI1NmMwIDM1LjMtMjguNyA2NC02NCA2NGwtMjU2IDAtMTYgMC00OCAwTDY0IDQ0OGMtMzUuMyAwLTY0LTI4LjctNjQtNjRMMCAxMjh6bTMyMCAwbDAgMjU2IDI1NiAwIDAtMjU2LTI1NiAwek0xNzguMyAxNzUuOWMtMy4yLTcuMi0xMC40LTExLjktMTguMy0xMS45cy0xNS4xIDQuNy0xOC4zIDExLjlsLTY0IDE0NGMtNC41IDEwLjEgLjEgMjEuOSAxMC4yIDI2LjRzMjEuOS0uMSAyNi40LTEwLjJsOC45LTIwLjEgNzMuNiAwIDguOSAyMC4xYzQuNSAxMC4xIDE2LjMgMTQuNiAyNi40IDEwLjJzMTQuNi0xNi4zIDEwLjItMjYuNGwtNjQtMTQ0ek0xNjAgMjMzLjJMMTc5IDI3NmwtMzggMCAxOS00Mi44ek00NDggMTY0YzExIDAgMjAgOSAyMCAyMGwwIDQgNDQgMCAxNiAwYzExIDAgMjAgOSAyMCAyMHMtOSAyMC0yMCAyMGwtMiAwLTEuNiA0LjVjLTguOSAyNC40LTIyLjQgNDYuNi0zOS42IDY1LjRjLjkgLjYgMS44IDEuMSAyLjcgMS42bDE4LjkgMTEuM2M5LjUgNS43IDEyLjUgMTggNi45IDI3LjRzLTE4IDEyLjUtMjcuNCA2LjlsLTE4LjktMTEuM2MtNC41LTIuNy04LjgtNS41LTEzLjEtOC41Yy0xMC42IDcuNS0yMS45IDE0LTM0IDE5LjRsLTMuNiAxLjZjLTEwLjEgNC41LTIxLjktLjEtMjYuNC0xMC4ycy4xLTIxLjkgMTAuMi0yNi40bDMuNi0xLjZjNi40LTIuOSAxMi42LTYuMSAxOC41LTkuOGwtMTIuMi0xMi4yYy03LjgtNy44LTcuOC0yMC41IDAtMjguM3MyMC41LTcuOCAyOC4zIDBsMTQuNiAxNC42IC41IC41YzEyLjQtMTMuMSAyMi41LTI4LjMgMjkuOC00NUw0NDggMjI4bC03MiAwYy0xMSAwLTIwLTktMjAtMjBzOS0yMCAyMC0yMGw1MiAwIDAtNGMwLTExIDktMjAgMjAtMjB6Ii8+PC9zdmc+');
+      pointer-events: none;
     }
     &::after {
       @include s.arrowHead(10, 3, bottom, var(--text-normal-color));
       inset-block: 1rem;
       inset-inline-end: 1rem;
+      pointer-events: none;
     }
   }
   select {
     width: 100%;
     height: 2.25rem;
     padding-inline: 3rem;
+    border: 1px solid var(--frame-color);
+    background-color: #faf9f6;
+    font-family: "Noto Sans";
+    font-size: var(--font-size-c);
+    color: var(--text-normal-color);
+    border-radius: .25rem;
     cursor: pointer;
     appearance: none;
-    border-radius: .25rem;
-    font-family: "Noto Sans";
-    color: var(--text-normal-color);
-    background-color: #faf9f6;
-    border: 1px solid var(--frame-color);
-    font-size: var(--font-size-c);
   }
 </style>
