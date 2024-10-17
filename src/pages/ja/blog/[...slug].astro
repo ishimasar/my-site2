@@ -3,7 +3,13 @@ import { getEntryBySlug, CollectionEntry, getCollection } from 'astro:content';
 
 import Layout from '../../../layouts/Layout.astro';
 import Head from '../../../components/Head.astro';
+import Search from '../../../components/Search.astro'
 import '../../../assets/scss/global.scss'
+
+import LocaleSelectSingle from "../../../components/i18n/LocaleSelectSingle.astro";
+import { useTranslations, type Lang } from "../../../i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -88,6 +94,9 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
         <div class="filterContainer">
           <a class="category" href="/ja/blog/category/">すべてのカテゴリー</a>
           <a class="tag" href="/ja/blog/tags/">すべてのタグ</a>
+        </div>
+        <div class="searchContainer mt48">
+          <Search />
         </div>
         <a href="/ja/blog/" class="geLinkButton">« ブログ記事一覧へ</a>
       </main>
@@ -620,5 +629,16 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
   .mermaid-caption {
     @include s.hrMarginTop(.25rem);
     text-align: center;
+  }
+  .searchContainer {
+    display: flex;
+    justify-content: center;
+    font-size: var(--font-size-d);
+    @include s.mq(dt) {
+      gap: 5rem;
+    }
+    @include s.mq(sp-tb) {
+      gap: 2rem;
+    }
   }
 </style>
