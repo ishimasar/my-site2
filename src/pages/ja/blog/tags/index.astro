@@ -1,7 +1,13 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
 import Head from '../../../../components/Head.astro';
+import Search from '../../../components/Search.astro'
 import '../../../../assets/scss/global.scss'
+
+import LocaleSelectSingle from "../../../components/i18n/LocaleSelectSingle.astro";
+import { useTranslations, type Lang } from "../../../i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
 
 const allPosts = await Astro.glob("../../../../content/blog/ja/*.{md,mdx}");
 const nonDraftPosts = allPosts.filter((blog) => !blog.frontmatter.draft);
@@ -9,7 +15,7 @@ const tags = [...new Set(nonDraftPosts.map((post) => post.frontmatter.tags).flat
 
 const title = 'すべてのタグ | UKIGUMO CAFE - ブログ・ポートフォリオサイト';
 const description = 'UKIGUMO CAFE(浮雲カフェ)という架空のカフェサイトのすべてのタグページです。本当はWeb/IT制作系の情報発信などを中心とした石井将直(屋号:Cloudy Knot)によるポートフォリオサイトです。';
-const permalink = 'https://nova.drifting-clouds.com/blog/tags/';
+const permalink = 'https://nova.drifting-clouds.com/ja/blog/tags/';
 const ogtype = 'blog';
 const ogimage = 'https://drifting-clouds.com/ogp.png';
 ---
@@ -29,6 +35,7 @@ const ogimage = 'https://drifting-clouds.com/ogp.png';
             <a class="tag" href={`/ja/blog/tags/${tag}`}><svg class="icon-tag svg-inline--fa fa-tag fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tag" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="icon-tag" fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg>{tag}</a>
           ))}
         </div>
+        <Search />
         <a href="/ja/blog/" class="geLinkButton mt48">« ブログ記事一覧へ</a>
       </div>
     </Layout>
