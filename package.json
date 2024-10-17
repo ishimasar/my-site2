@@ -32,6 +32,7 @@
     "@mdx-js/mdx": "^2.0.0",
     "@pagefind/default-ui": "^1.1.1",
     "astro": "^4.15.9",
+    "astro-i18n-starter": "github:psephopaiktes/astro-i18n-starter",
     "mdast-util-to-string": "^4.0.0",
     "mdx": "^0.2.3",
     "mdx-mermaid": "^2.0.0",

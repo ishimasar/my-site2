@@ -1,9 +1,9 @@
 ---
 import { getEntryBySlug, CollectionEntry, getCollection } from 'astro:content';
 
-import Layout from '../../layouts/Layout.astro';
-import Head from '../../components/Head.astro';
-import '../../assets/scss/global.scss'
+import Layout from '../../../layouts/Layout.astro';
+import Head from '../../../components/Head.astro';
+import '../../../assets/scss/global.scss'
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -82,23 +82,23 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
           </div>
         </article>
         <div class="nearContContainer">
-          {nextPost && <a class="link -prev" href={`/blog/${nextPost.slug}`}>&lt; 前の記事<br>{nextPost.data.title}</a>}
-          {prevPost && <a class="link -next" href={`/blog/${prevPost.slug}`}>次の記事 &gt;<br>{prevPost.data.title}</a>}
+          {nextPost && <a class="link -prev" href={`/ja/blog/${nextPost.slug}`}>&lt; 前の記事<br>{nextPost.data.title}</a>}
+          {prevPost && <a class="link -next" href={`/ja/blog/${prevPost.slug}`}>次の記事 &gt;<br>{prevPost.data.title}</a>}
         </div>
         <div class="filterContainer">
-          <a class="category" href="/blog/category/">すべてのカテゴリー</a>
-          <a class="tag" href="/blog/tags/">すべてのタグ</a>
+          <a class="category" href="/ja/blog/category/">すべてのカテゴリー</a>
+          <a class="tag" href="/ja/blog/tags/">すべてのタグ</a>
         </div>
-        <a href="/blog/" class="geLinkButton">« ブログ記事一覧へ</a>
+        <a href="/ja/blog/" class="geLinkButton">« ブログ記事一覧へ</a>
       </main>
     </Layout>
   </body>
 </html>
 
 <style is:global lang="scss">
-  @use "../../assets/scss/base/setting" as s;
-  @use "../../assets/scss/general/7-typography/heading" as heading;
-  @use "../../assets/scss/general/7-typography/bodytext" as body;
+  @use "../../../assets/scss/base/setting" as s;
+  @use "../../../assets/scss/general/7-typography/heading" as heading;
+  @use "../../../assets/scss/general/7-typography/bodytext" as body;
 
   .math.math-display {
     margin: 1rem auto auto;

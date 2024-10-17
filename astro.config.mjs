@@ -69,5 +69,13 @@ export default defineConfig({
   server: {
     port: 8080
   },
+  i18n: {
+    defaultLocale: 'ja',
+    locales: ['en', 'ja'],
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: false,
+    },
+  },
   output: 'static'
 });
