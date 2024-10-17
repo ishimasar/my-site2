@@ -6,7 +6,7 @@
   "style-disabled": false,
   "script-disabled": false,
   "title-require": false,
-  "attr-lowercase": ["viewBox"],
+  "attr-lowercase": ["viewBox", "data-languageSelect"],
   "attr-no-duplication": true,
   "attr-no-unnecessary-whitespace": true,
   "attr-unsafe-chars": true,

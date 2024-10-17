@@ -2,7 +2,9 @@
 import "@pagefind/default-ui/css/ui.css";
 ---
 
-<div id="search"></div>
+<div class="searchContainer mt48">
+  <div id="search"></div>
+</div>
 
 <script>
   import { PagefindUI } from "@pagefind/default-ui";
@@ -27,3 +29,68 @@ import "@pagefind/default-ui/css/ui.css";
     debounceTimeoutMs: 500,
   });
 </script>
+
+<style lang="scss" is:global>
+  @use "../assets/scss/base/setting" as s;
+
+  :root {
+    --pagefind-ui-scale: .9;
+    --pagefind-ui-border-width: 1.5px;
+    --pagefind-ui-border: #503626;
+    --pagefind-ui-border-radius: 6px;
+    --pagefind-ui-image-border-radius: 6px;
+  }
+  .searchContainer {
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    font-size: var(--font-size-d);
+    @include s.mq(dt) {
+      width: 36rem;
+    }
+    @include s.mq(sp-tb) {
+      width: 90vw;
+    }
+  }
+  #search {
+    & .pagefind-ui__search-input {
+      height: calc(64px * var(--pagefind-ui-scale));
+      padding: 0 calc(70px * var(--pagefind-ui-scale)) 0 calc(54px * var(--pagefind-ui-scale));
+      border: var(--pagefind-ui-border-width) solid var(--pagefind-ui-border);
+      background-color: var(--pagefind-ui-background);
+      font-size: calc(21px * var(--pagefind-ui-scale));
+      border-radius: var(--pagefind-ui-border-radius);
+      @include s.mq(dt) {
+        width: 36rem;
+      }
+      @include s.mq(sp-tb) {
+        width: 90vw;
+      }
+    }
+    & .pagefind-ui__drawer {
+      width: 100%;
+      @include s.mq(sp-tb) {
+        width: 100%;
+        max-width: 96vw;
+      }
+    }
+    & .pagefind-ui__results-area {
+      margin-block-start: 0;
+    }
+    & .pagefind-ui__result {
+      display: flex;
+      align-items: flex-start;
+      gap: min(calc(30px * var(--pagefind-ui-scale)), 3%);
+      list-style-type: none;
+      padding: calc(10px * var(--pagefind-ui-scale)) 1rem calc(30px * var(--pagefind-ui-scale));
+      border-top: solid var(--pagefind-ui-border-width) var(--pagefind-ui-border);
+      background-color: var(--white);
+    }
+    & .pagefind-ui__result-title {
+      font-size: var(--font-size-d);
+    }
+    & .pagefind-ui__button {
+      margin-block-start: 1.5rem;
+    }
+  }
+</style>
