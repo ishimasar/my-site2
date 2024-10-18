@@ -165,10 +165,16 @@ const ogimage = 'https://nova.drifting-clouds.com' + remarkPluginFrontmatter.thu
   .artBacklinkWrap {
     width: 45%;
     margin-right: auto;
+    @include s.mq(sp-tb) {
+      transform: scale(1.15) translate(20px, -4px);
+    }
     > .link {
       padding-top: .5rem;
       padding-bottom: .5rem;
       font-size: var(--font-size-f);
+      @include s.mq(sp-tb) {
+        padding: .375rem .625rem;
+      }
     }
   }
   .artMinRead {
