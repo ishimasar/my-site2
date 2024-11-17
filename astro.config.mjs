@@ -77,5 +77,9 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
+  redirects: {
+    '/blog': '/ja/blog',
+    '/blog/[...slug]': '/ja/blog/[...slug]'
+  },
   output: 'static'
 });
